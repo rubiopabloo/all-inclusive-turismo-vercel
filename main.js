@@ -63,25 +63,27 @@ if (aboutBtn && aboutModal) {
 // Student Destinations Toggle
 const showDestinationsBtn = document.getElementById('btn-show-destinations');
 const destinationsWrapper = document.getElementById('student-grid');
+const studentSection = document.getElementById('estudiantil');
 const extraDestinations = document.querySelectorAll('.extra-destination');
 
-if (showDestinationsBtn && destinationsWrapper) {
+if (showDestinationsBtn && destinationsWrapper && studentSection) {
     showDestinationsBtn.addEventListener('click', () => {
-        const isOpen = destinationsWrapper.classList.toggle('open');
+        const isCatalogActive = studentSection.classList.toggle('catalog-active');
+        const isGridOpen = destinationsWrapper.classList.toggle('open');
         
         extraDestinations.forEach(dest => {
             dest.classList.add('show');
         });
 
-        if (isOpen) {
+        if (isCatalogActive) {
             showDestinationsBtn.textContent = 'Ocultar catálogo';
-            // Optional: smooth scroll to the first revealed card
+            // Wait for header to hide before scrolling
             setTimeout(() => {
-                destinationsWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 300);
+                destinationsWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 600);
         } else {
             showDestinationsBtn.textContent = 'Ver catálogo de destinos';
-            document.getElementById('estudiantil').scrollIntoView({ behavior: 'smooth' });
+            studentSection.scrollIntoView({ behavior: 'smooth' });
         }
     });
 }
