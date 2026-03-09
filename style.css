@@ -397,7 +397,7 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-.stat-number {
+.stat-value {
     display: block;
     font-size: 2rem;
     font-weight: 700;

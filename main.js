@@ -123,3 +123,37 @@ if (contactForm) {
         });
     });
 }
+
+// Stats Count Up Animation
+const countNumbers = () => {
+    const stats = document.querySelectorAll('.stat-number');
+    const speed = 200;
+
+    stats.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+};
+
+const statsSection = document.querySelector('.stats-grid');
+const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        countNumbers();
+        statsObserver.unobserve(statsSection);
+    }
+}, { threshold: 0.5 });
+
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
