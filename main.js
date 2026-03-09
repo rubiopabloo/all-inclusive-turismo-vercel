@@ -80,7 +80,7 @@ if (showDestinationsBtn && destinationsWrapper && studentSection) {
             // Smooth scroll only if needed, making it less jarring
             setTimeout(() => {
                 destinationsWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 800);
+            }, 1200);
         } else {
             showDestinationsBtn.innerHTML = 'Ver catálogo de destinos <i class="fas fa-chevron-down ms-2"></i>';
             studentSection.scrollIntoView({ behavior: 'smooth' });
