@@ -1,3 +1,10 @@
+// Disable shortcuts like Ctrl+S, Ctrl+P, Ctrl+U
+window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'u')) {
+        e.preventDefault();
+    }
+});
+
 // Navbar background change on scroll
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
