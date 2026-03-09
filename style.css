@@ -651,6 +651,45 @@ h1, h2, h3, h4 {
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
+.about-page {
+    padding-top: 140px; /* Separar más el título de la navbar */
+}
+
+.about-page .section-title {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.about-page .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.location-info {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-info i {
+    color: #000;
+}
+
+.corner-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px; /* Logo pequeño */
+    height: auto;
+    z-index: 1000;
+    opacity: 0.8;
+    pointer-events: none; /* No interfiere con clics */
+}
+
 /* Contact */
 .contact { background: var(--bg-light); }
 
