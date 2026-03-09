@@ -202,7 +202,16 @@ h1, h2, h3, h4 {
 
 /* Sections */
 .section {
-    padding: 100px 0;
+    padding: 80px 0; /* Reduced general padding */
+}
+
+#por-que {
+    padding-bottom: 40px;
+}
+
+#paquetes {
+    padding-top: 40px;
+    padding-bottom: 140px;
 }
 
 .section-title {
@@ -338,7 +347,7 @@ h1, h2, h3, h4 {
 /* Redesigned Student Immersive Section */
 .student-immersive {
     position: relative;
-    padding: 100px 0;
+    padding: 140px 0 100px; /* Increased top padding to push away from packages */
     color: var(--white);
     background: #1e272e; /* Moved fallback to background for better blending */
     overflow: hidden;
