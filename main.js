@@ -85,6 +85,7 @@ if (contactForm) {
         
         btn.textContent = 'Enviando...';
         btn.disabled = true;
+ 
 
         fetch(contactForm.action, {
             method: 'POST',
@@ -114,22 +115,30 @@ if (contactForm) {
 // Stats Count Up Animation
 const countNumbers = () => {
     const stats = document.querySelectorAll('.stat-number');
-    const speed = 200;
+    const duration = 2500; // Duration in ms for all counters
 
     stats.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = target / speed;
+        const target = +counter.getAttribute('data-target');
+        let startTime = null;
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 15);
+        const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            
+            // Ease out cubic for a smoother finish
+            const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+            const currentAmount = Math.floor(easeOutCubic * target);
+            
+            counter.innerText = currentAmount;
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
             } else {
                 counter.innerText = target;
             }
         };
-        updateCount();
+
+        requestAnimationFrame(animate);
     });
 };
 
