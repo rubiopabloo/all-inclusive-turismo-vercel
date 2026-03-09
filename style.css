@@ -370,7 +370,7 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1.5s ease;
+    transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .student-immersive.catalog-active .student-immersive-bg img {
@@ -385,7 +385,7 @@ h1, h2, h3, h4 {
     bottom: -2px; /* Slight overflow to ensure full coverage */
     background: linear-gradient(180deg, rgba(30,39,46,0.8) 0%, rgba(30,39,46,0.95) 100%);
     z-index: -1;
-    transition: var(--transition);
+    transition: background 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .student-immersive.catalog-active .student-immersive-overlay {
