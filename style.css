@@ -799,3 +799,10 @@ input:focus, select:focus, textarea:focus {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Zoom Prevention Hack for Mobile Browser Overrides */
+@media screen and (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents auto-zoom on focus in iOS */
+    }
+}
