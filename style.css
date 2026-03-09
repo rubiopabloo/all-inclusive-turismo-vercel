@@ -340,7 +340,7 @@ h1, h2, h3, h4 {
     position: relative;
     padding: 100px 0;
     color: var(--white);
-    background-color: #1e272e; /* Fallback color to avoid light lines */
+    background: #1e272e; /* Moved fallback to background for better blending */
     overflow: hidden;
     min-height: 90vh;
     display: flex;
@@ -380,7 +380,7 @@ h1, h2, h3, h4 {
 }
 
 .student-immersive.catalog-active .student-immersive-overlay {
-    background: rgba(30, 39, 46, 0.85); /* Reduced opacity to show image */
+    background: rgba(30, 39, 46, 0.7); /* Further reduced to guarantee visibility */
 }
 
 .student-immersive-content {
@@ -500,13 +500,14 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1; /* Allow to fill space for better centering */
 }
 
 .student-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    padding: 2rem 0 5rem;
+    padding: 3rem 0; /* More balanced padding */
     width: 100%;
 }
 
