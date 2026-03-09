@@ -55,7 +55,7 @@ if (showDestinationsBtn && destinationsWrapper && studentSection) {
     showDestinationsBtn.addEventListener('click', () => {
         const isCatalogActive = studentSection.classList.toggle('catalog-active');
         const isGridOpen = destinationsWrapper.classList.toggle('open');
-        
+
         extraDestinations.forEach(dest => {
             dest.classList.add('show');
         });
@@ -78,14 +78,13 @@ const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const btn = contactForm.querySelector('button');
         const originalText = btn.textContent;
         const formData = new FormData(contactForm);
-        
+
         btn.textContent = 'Enviando...';
         btn.disabled = true;
- 
 
         fetch(contactForm.action, {
             method: 'POST',
@@ -94,21 +93,21 @@ if (contactForm) {
                 'Accept': 'application/json'
             }
         })
-        .then(response => {
-            if (response.ok) {
-                alert('¡Gracias por tu consulta! Hemos recibido tu mensaje y nos pondremos en contacto pronto.');
-                contactForm.reset();
-            } else {
-                alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo o contáctanos por WhatsApp.');
-            }
-        })
-        .catch(error => {
-            alert('Error de conexión. Por favor, revisa tu conexión a internet o contáctanos directamente.');
-        })
-        .finally(() => {
-            btn.textContent = originalText;
-            btn.disabled = false;
-        });
+            .then(response => {
+                if (response.ok) {
+                    alert('¡Gracias por tu consulta! Hemos recibido tu mensaje y nos pondremos en contacto pronto.');
+                    contactForm.reset();
+                } else {
+                    alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo o contáctanos por WhatsApp.');
+                }
+            })
+            .catch(error => {
+                alert('Error de conexión. Por favor, revisa tu conexión a internet o contáctanos directamente.');
+            })
+            .finally(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
     });
 }
 
@@ -124,11 +123,11 @@ const countNumbers = () => {
         const animate = (timestamp) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
-            
+
             // Ease out cubic for a smoother finish
             const easeOutCubic = 1 - Math.pow(1 - progress, 3);
             const currentAmount = Math.floor(easeOutCubic * target);
-            
+
             counter.innerText = currentAmount;
 
             if (progress < 1) {
