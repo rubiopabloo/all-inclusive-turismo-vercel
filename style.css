@@ -380,7 +380,7 @@ h1, h2, h3, h4 {
 }
 
 .student-immersive.catalog-active .student-immersive-overlay {
-    background: rgba(30, 39, 46, 0.95);
+    background: rgba(30, 39, 46, 0.85); /* Reduced opacity to show image */
 }
 
 .student-immersive-content {
@@ -496,14 +496,18 @@ h1, h2, h3, h4 {
 
 .student-grid-collapsed.open {
     max-height: 2000px;
-    margin-top: 3rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .student-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    padding-bottom: 50px;
+    padding: 2rem 0 5rem;
+    width: 100%;
 }
 
 .student-immersive .student-card {
