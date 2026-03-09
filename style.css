@@ -379,7 +379,7 @@ h1, h2, h3, h4 {
 }
 
 .student-immersive.catalog-active .student-immersive-overlay {
-    background: rgba(30, 39, 46, 0.9);
+    background: rgba(30, 39, 46, 0.95);
 }
 
 .student-immersive-content {
@@ -507,7 +507,7 @@ h1, h2, h3, h4 {
 
 .student-immersive .student-card {
     position: relative;
-    height: 380px;
+    height: 320px;
     border-radius: 20px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
@@ -539,11 +539,15 @@ h1, h2, h3, h4 {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 2.5rem 1.5rem 1.5rem;
+    padding: 2.5rem 1.5rem 2rem;
     background: linear-gradient(transparent, rgba(0,0,0,0.95) 70%);
     color: var(--white);
-    transform: translateY(80px); /* Ocultamos la descripción por defecto */
+    transform: translateY(100px); /* Ocultamos la descripción por defecto */
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .student-immersive .student-card:hover .student-info {
@@ -551,14 +555,14 @@ h1, h2, h3, h4 {
 }
 
 .student-immersive .student-info h3 { 
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 0.5rem; 
     color: var(--white);
 }
 
 .student-immersive .student-info p { 
-    font-size: 0.85rem; 
-    margin-bottom: 1.2rem;
+    font-size: 0.8rem; 
+    margin-bottom: 1rem;
     opacity: 0;
     transition: var(--transition);
 }

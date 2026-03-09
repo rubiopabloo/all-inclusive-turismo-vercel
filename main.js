@@ -76,13 +76,13 @@ if (showDestinationsBtn && destinationsWrapper && studentSection) {
         });
 
         if (isCatalogActive) {
-            showDestinationsBtn.textContent = 'Ocultar catálogo';
-            // Wait for header to hide before scrolling
+            showDestinationsBtn.innerHTML = 'Ocultar catálogo <i class="fas fa-chevron-up ms-2"></i>';
+            // Smooth scroll only if needed, making it less jarring
             setTimeout(() => {
-                destinationsWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 600);
+                destinationsWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 800);
         } else {
-            showDestinationsBtn.textContent = 'Ver catálogo de destinos';
+            showDestinationsBtn.innerHTML = 'Ver catálogo de destinos <i class="fas fa-chevron-down ms-2"></i>';
             studentSection.scrollIntoView({ behavior: 'smooth' });
         }
     });
