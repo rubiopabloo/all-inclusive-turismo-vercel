@@ -42,30 +42,8 @@ mobileMenuBtn.addEventListener('click', () => {
     alert('Menú móvil en desarrollo. Puedes navegar usando los enlaces de escritorio.');
 });
 
-// About Us Modal Logic
-const aboutModal = document.getElementById('nosotros-modal');
-const aboutBtn = document.querySelector('a[href="#nosotros"]');
-const closeBtn = document.querySelector('.close-modal');
+// About Us navigation (handled by browser links now)
 
-if (aboutBtn && aboutModal) {
-    aboutBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        aboutModal.style.display = 'block';
-        document.body.classList.add('modal-open');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        aboutModal.style.display = 'none';
-        document.body.classList.remove('modal-open');
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === aboutModal) {
-            aboutModal.style.display = 'none';
-            document.body.classList.remove('modal-open');
-        }
-    });
-}
 
 // Student Destinations Toggle
 const showDestinationsBtn = document.getElementById('btn-show-destinations');

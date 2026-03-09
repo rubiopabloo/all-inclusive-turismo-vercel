@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sobre Nosotros | All Inclusive Turismo</title>
+    <meta name="description" content="Conoce más sobre All Inclusive Turismo, nuestra historia y nuestro compromiso con tus viajes.">
+    <!-- Google Fonts: Poppins & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- Navbar (Fixed for other pages) -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container container-nav">
+            <div class="logo">
+                <a href="index.html">All Inclusive <span>Turismo</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#por-que">¿Por qué viajar con nosotros?</a></li>
+                <li><a href="index.html#paquetes">Paquetes</a></li>
+                <li><a href="index.html#estudiantil">Estudiantil</a></li>
+                <li><a href="nosotros.html">Sobre nosotros</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Us Page Content -->
+    <section class="section about-page">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content">
+                    <h1 class="section-title">Sobre nosotros</h1>
+                    <div class="about-text">
+                        <p>All Inclusive Turismo nace con la idea de ofrecer una forma moderna, organizada y confiable de planificar viajes.</p>
+                        <p>Aunque somos una propuesta nueva, nuestro equipo está conformado por profesionales que se dedican al turismo desde hace más de 30 años, con amplia experiencia organizando viajes nacionales, internacionales y estudiantiles.</p>
+                        <p>Trabajamos con un sistema all inclusive, encargándonos de coordinar cada detalle del viaje: transporte, alojamiento, actividades, planificación y acompañamiento durante toda la experiencia.</p>
+                        <p>De esta manera buscamos que los pasajeros, las instituciones y los profesores puedan disfrutar el viaje sin preocuparse por la logística.</p>
+                        <p>Más que organizar viajes, nuestro objetivo es crear experiencias únicas y recuerdos que duren toda la vida.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="index.html#contacto" class="btn btn-primary">Contáctanos</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Sobre nosotros.jfif" alt="Nuestra Visión">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <h3>All Inclusive <span>Turismo</span></h3>
+                    <p>Creamos experiencias de viaje inolvidables, combinando organización, seguridad y más de 30 años de experiencia en turismo.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#por-que">¿Por qué viajar con nosotros?</a></li>
+                        <li><a href="index.html#paquetes">Paquetes</a></li>
+                        <li><a href="index.html#estudiantil">Estudiantil</a></li>
+                        <li><a href="nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> allinclusiveturismo@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +54 11 2325 8119</li>
+                        <li><i class="fab fa-instagram"></i> @allinclusiveturismo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 All Inclusive Turismo — Todos los derechos reservados</p>
+                <p class="created-by">Creado por Headliner © con amor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/541123258119" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Basic JS for navbar and mobile menu on this page -->
+    <script>
+        // Disable shortcuts
+        window.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'u')) {
+                e.preventDefault();
+            }
+        });
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                alert('Menú móvil en desarrollo.');
+            });
+        }
+    </script>
+</body>
+</html>
