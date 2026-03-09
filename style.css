@@ -791,12 +791,23 @@ input:focus, select:focus, textarea:focus {
     color: var(--primary);
 }
 
-.footer-logo {
-    max-width: 150px;
-    height: auto;
+.footer-logos-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 1.5rem;
+}
+
+.footer-logo {
+    max-width: 120px; /* Reduced slightly to fit two logos better */
+    height: auto;
     display: block;
     transition: var(--transition);
+    filter: brightness(0) invert(1); /* Ensure they are white/visible on dark bg if needed */
+}
+
+.footer-logo.rnav {
+    max-width: 140px; /* RNAV is wider text, adjusting for visual balance */
 }
 
 .footer-logo:hover {
