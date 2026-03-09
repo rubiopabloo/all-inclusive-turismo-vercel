@@ -15,18 +15,21 @@
 </head>
 <body>
 
-    <!-- Transparent Navbar -->
+    <!-- Mesh Pattern Overlay -->
+    <div class="mesh-pattern"></div>
+    <div class="glow-blob glow-1"></div>
+    <div class="glow-blob glow-2"></div>
+
+    <!-- Redesigned Pill Navbar -->
     <nav class="navbar" id="navbar">
-        <div class="container container-nav">
+        <div class="container-nav">
             <div class="logo">
-                <a href="#">All Inclusive <span>Turismo</span></a>
+                <a href="#">All Inc<span>Turismo</span></a>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#por-que">¿Por qué viajar con nosotros?</a></li>
                 <li><a href="#paquetes">Paquetes</a></li>
                 <li><a href="#estudiantil">Estudiantil</a></li>
-                <li><a href="#nosotros">Sobre nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="mobile-menu-btn" id="mobile-menu-btn">
@@ -42,11 +45,48 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content container">
-            <h1 class="fade-in">CREANDO ANÉCDOTAS INOLVIDABLES</h1>
-            <p class="fade-in-delayed">Aventuras a tu medida, recuerdos que duran para toda la vida.</p>
-            <div class="hero-buttons fade-in-delayed">
-                <a href="#paquetes" class="btn btn-primary">Explorar paquetes</a>
-                <a href="#contacto" class="btn btn-secondary">Contacto</a>
+            <h1 class="fade-in">Creando Momentos <br>Inolvidables</h1>
+            <p class="fade-in-delayed">Explora el mundo con la confianza de expertos. Viajes diseñados a tu medida con todo incluido.</p>
+            
+            <!-- Hero Search/Filter Bar -->
+            <div class="search-container fade-in-delayed">
+                <div class="search-field">
+                    <label>Destino</label>
+                    <span id="display-destino">¿A dónde vas?</span>
+                </div>
+                <div class="search-field">
+                    <label>Fecha</label>
+                    <span id="display-fecha">Seleccionar</span>
+                </div>
+                <div class="search-field">
+                    <label>Viajeros</label>
+                    <span id="display-viajeros">2 Adultos</span>
+                </div>
+                <button class="btn-search">Buscar</button>
+            </div>
+        </div>
+
+        <!-- Floating Stats in Hero -->
+        <div class="hero-stats reveal">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Pasajeros felices</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Destinos únicos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5.0</span>
+                        <span class="stat-label">Calificación promedio</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -136,7 +176,7 @@
     <!-- Student Section (Redesigned) -->
     <section id="estudiantil" class="section student-immersive">
         <div class="student-immersive-bg">
-            <img src="Grupales.jpeg" alt="Group Travel">
+            <img src="Estudiantiles.jpg" alt="Group Travel">
         </div>
         <div class="student-immersive-overlay"></div>
         
@@ -144,25 +184,10 @@
             <div class="student-text-side reveal">
                 <span class="tagline">VIAJES ESTUDIANTILES</span>
                 <h2 class="main-title">Viaja con amigos, <br> crea nuevas historias</h2>
-                <p class="description">
+                <p class="description" style="margin-left: auto; margin-right: auto;">
                     Organizamos viajes para colegios combinando aprendizaje, aventura y experiencias inolvidables. 
                     Nuestro equipo se encarga de toda la logística para que solo te preocupes por disfrutar.
                 </p>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">30+</span>
-                        <span class="stat-label">Años de experiencia</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">10k+</span>
-                        <span class="stat-label">Pasajeros felices</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Destinos únicos</span>
-                    </div>
-                </div>
                 
                 <button id="btn-show-destinations" class="btn btn-primary btn-large">Ver catálogo de destinos</button>
             </div>
@@ -339,10 +364,8 @@
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#por-que">¿Por qué viajar con nosotros?</a></li>
                         <li><a href="#paquetes">Paquetes</a></li>
                         <li><a href="#estudiantil">Estudiantil</a></li>
-                        <li><a href="#nosotros">Sobre nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
