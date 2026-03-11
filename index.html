@@ -107,7 +107,7 @@
                     </div>
                     <div class="card-content">
                         <h3>Internacional</h3>
-                        <p>Experiencias fuera del país con planificación completa.</p>
+                        <p>Explora el mundo con nuestras grupales e individuales.</p>
                         <a href="#contacto" class="btn-text">Ver destinos <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                     <div class="card-content">
                         <h3>Viajes de XV</h3>
                         <p>Experiencias únicas para celebrar los 15 años.</p>
-                        <a href="xv.html" class="btn-text">Ver destinos <i class="fas fa-arrow-right"></i></a>
+                        <a href="#contacto" class="btn-text">Ver destinos <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -156,15 +156,15 @@
 
                     <div class="stats-grid">
                         <div class="stat-card glass-card">
-                            <div class="stat-value"><span class="stat-number" data-target="30">0</span>+</div>
+                            <div class="stat-value">30+</div>
                             <span class="stat-label">Años de experiencia</span>
                         </div>
                         <div class="stat-card glass-card">
-                            <div class="stat-value"><span class="stat-number" data-target="10">0</span>k+</div>
+                            <div class="stat-value">10k+</div>
                             <span class="stat-label">Pasajeros felices</span>
                         </div>
                         <div class="stat-card glass-card">
-                            <div class="stat-value"><span class="stat-number" data-target="10">0</span>+</div>
+                            <div class="stat-value">10+</div>
                             <span class="stat-label">Destinos únicos</span>
                         </div>
                     </div>
@@ -252,70 +252,86 @@
         </div>
     </section>
 
-
-
+    <!-- Services Section -->
+    <section id="servicios" class="section services">
+        <div class="container">
+            <h2 class="section-title reveal">Lo que te ofrecemos</h2>
+            <div class="cards-grid">
+                <div class="service-card reveal">
+                    <i class="fas fa-bus"></i>
+                    <h3>Traslados</h3>
+                    <p>Viajes seguros en unidades modernas y equipadas.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-hotel"></i>
+                    <h3>Alojamiento</h3>
+                    <p>Selección de los mejores hoteles en cada destino.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <h3>Excursiones</h3>
+                    <p>Actividades pensadas para cada grupo de edad.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-headset"></i>
+                    <h3>Asistencia</h3>
+                    <p>Coordinación presente durante toda la experiencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contacto" class="section contact">
         <div class="container">
             <h2 class="section-title reveal">Contacto</h2>
-            <p class="section-intro reveal">¿Listo para planificar tu próximo viaje? Nuestro equipo está listo para
-                ayudarte.</p>
-
+            <p class="section-intro reveal">¿Tienes alguna duda? Escríbenos y te asesoramos.</p>
             <div class="contact-wrapper">
                 <div class="contact-info reveal">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Buenos Aires, Argentina</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+54 9 11 1234-5678</p>
+                        </div>
+                    </div>
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>allinclusiveturismo@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <p>+54 11 2325 8119</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <h4>Instagram</h4>
-                            <p>@allinclusiveturismo</p>
+                            <p>info@allinclusive.com</p>
                         </div>
                     </div>
                 </div>
-
-                <form class="contact-form reveal" action="https://formsubmit.co/allinclusiveturismo@gmail.com"
-                    method="POST">
-                    <!-- Form Selection Configuration -->
-                    <input type="hidden" name="_next" value="https://allinclusiveturismo.com.ar/gracias.html">
-                    <input type="hidden" name="_subject" value="Nueva consulta desde la Web!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <div class="form-group">
-                        <input type="text" name="nombre" placeholder="Nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <select name="tipo_de_viaje" required>
-                            <option value="" disabled selected>Tipo de viaje</option>
-                            <option value="estudiantil">Estudiantil</option>
-                            <option value="jubilados">Jubilados</option>
-                            <option value="nacional">Nacional</option>
-                            <option value="internacional">Internacional</option>
-                            <option value="xv">Viajes de XV</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Enviar consulta</button>
-                </form>
+                <div class="contact-form reveal">
+                    <form action="#">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Tipo de viaje</option>
+                                <option value="estudiantil">Estudiantil</option>
+                                <option value="individual">Individual / Grupal</option>
+                                <option value="xv">Viaje de XV</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -326,8 +342,8 @@
             <div class="footer-grid">
                 <div class="footer-col brand-col">
                     <h3>All Inclusive <span>Turismo</span></h3>
-                    <p>Creamos experiencias de viaje inolvidables, combinando organización, seguridad y más de 30 años
-                        de experiencia en turismo.</p>
+                    <p>Creamos experiencias de viaje inolvidables, combinando organización, seguridad y más de 30 años de
+                        experiencia en turismo.</p>
                     <div class="footer-logos-container">
                         <img src="footer.png" alt="All Inclusive Logo" class="footer-logo">
                         <img src="rnav.png" alt="RNAV Logo" class="footer-logo rnav">
@@ -337,7 +353,6 @@
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#por-que">¿Por qué viajar con nosotros?</a></li>
                         <li><a href="#paquetes">Paquetes</a></li>
                         <li><a href="#estudiantil">Estudiantil</a></li>
                         <li><a href="nosotros.html">Sobre nosotros</a></li>
@@ -345,26 +360,31 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Contacto</h4>
+                    <h4>Legales</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> allinclusiveturismo@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +54 11 2325 8119</li>
-                        <li><i class="fab fa-instagram"></i> @allinclusiveturismo</li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">RNAV 16670</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 All Inclusive Turismo — Todos los derechos reservados</p>
-                <p class="created-by">Creado por Headliner © con amor</p>
+                <p>&copy; 2024 All Inclusive Turismo. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/541123258119" class="whatsapp-float" target="_blank">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5491112345678" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Scripts -->
     <script src="main.js"></script>
 </body>
 
