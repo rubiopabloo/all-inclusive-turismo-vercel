@@ -258,14 +258,17 @@ h4 {
     justify-content: center;
 }
 
-/* Sections */
-.section {
-    padding: 80px 0;
-    /* Reduced general padding */
+/* Why Us Section */
+.why-us {
+    background: #fdfdfd; /* Extremely subtle off-white */
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 100px 0;
 }
 
 #por-que {
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 #paquetes {
@@ -535,6 +538,11 @@ h4 {
     font-weight: 700;
     color: var(--white);
     margin-bottom: 0.2rem;
+}
+
+.stat-number-wrapper {
+    display: flex;
+    align-items: center;
 }
 
 .stat-label {
@@ -1173,4 +1181,9 @@ textarea:focus {
     .retiree-info {
         padding: 2rem;
     }
+}
+
+/* NEW: Hero Overlay Specific Adjustment for New Photo */
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.3) !important; /* Slightly lighter for the new beach photo */
 }
