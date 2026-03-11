@@ -170,7 +170,7 @@ h4 {
 
 /* Hero */
 .hero {
-    height: 100vh;
+    height: 90vh; /* Reduced from 100vh to avoid feeling oversized */
     display: flex;
     align-items: center;
     position: relative;
@@ -258,13 +258,17 @@ h4 {
     justify-content: center;
 }
 
+/* Sections */
+.section {
+    padding: 100px 0; /* Restored and consistent padding */
+}
+
 /* Why Us Section */
 .why-us {
-    background: #f4f6f8; /* Darker, more noticeable light gray */
+    background: #f4f6f8;
     position: relative;
-    border-top: 2px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
-    padding: 120px 0; /* More breathing room */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 #por-que {
