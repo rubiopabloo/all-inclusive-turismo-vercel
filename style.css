@@ -505,16 +505,16 @@ h4 {
 }
 
 .main-title {
-    font-size: 3.5rem;
+    font-size: 4.5rem; /* Larger for better density */
     line-height: 1.1;
     margin-bottom: 2rem;
 }
 
 .description {
-    font-size: 1.1rem;
+    font-size: 1.25rem; /* Slightly larger */
     color: rgba(255, 255, 255, 0.8);
     margin: 0 auto 3rem;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 /* Stats Cards */
@@ -527,19 +527,19 @@ h4 {
 
 .stat-card {
     background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
+    padding: 2.5rem 1.5rem; /* Increased vertical padding */
     border-radius: 20px;
     flex: 1;
-    max-width: 220px;
+    max-width: 250px;
     transition: var(--transition);
 }
 
 .stat-value {
     display: block;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Larger stats */
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .stat-label {
@@ -764,17 +764,22 @@ h4 {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 4rem;
+    max-width: 1100px; /* Concentration to avoid "empty" feel */
+    margin: 0 auto;
 }
 
 .info-item {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 2.5rem;
+    align-items: center; /* Better alignment with larger icons */
 }
 
 .info-item i {
-    font-size: 1.5rem;
+    font-size: 2rem; /* Larger icons for more presence */
     color: var(--primary);
+    width: 40px;
+    text-align: center;
 }
 
 .info-item h4 {
