@@ -1965,3 +1965,10 @@ body.modal-open {
         grid-template-columns: 1fr;
     }
 }
+/* Fixes added */
+.modal.show { display: block; }
+.fas, .fab, .far { font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important; }
+
+.modal.show { display: flex !important; align-items: center; justify-content: center; }
+.fas, .fa-solid { font-weight: 900 !important; font-family:"Font Awesome 6 Free" !important; }
+.fab, .fa-brands { font-weight: 400 !important; font-family:"Font Awesome 6 Brands" !important; }
