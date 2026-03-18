@@ -2062,3 +2062,6 @@ svg { fill: currentColor; }
 
 .info-item { align-items: center !important; }
 
+
+svg { width: 1em; height: 1em; vertical-align: -0.125em; }
+
