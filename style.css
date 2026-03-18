@@ -2050,3 +2050,12 @@ body.modal-open {
     #transport-modal .modal-img-col { height: 250px; }
     #transport-modal .modal-text-col { padding: 25px; }
 }
+
+/* --- SVG Icon Fixes --- */
+svg { fill: currentColor; }
+.info-item svg { color: var(--primary); font-size: 1.5rem; margin-right: 15px; }
+.footer-col ul li svg { color: var(--primary); margin-right: 10px; width: 1.2em; height: 1.2em; vertical-align: middle; }
+.btn svg { margin-right: 8px; font-size: 1.2rem; vertical-align: -0.125em; }
+.whatsapp-float { display: flex !important; align-items: center !important; justify-content: center !important; }
+.whatsapp-float svg { width: 35px; height: 35px; color: #fff; }
+
