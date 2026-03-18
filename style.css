@@ -2065,3 +2065,13 @@ svg { fill: currentColor; }
 
 svg { width: 1em; height: 1em; vertical-align: -0.125em; }
 
+
+/* --- Indentation and Mobile Modal Fixes --- */
+#transport-modal .close-modal { position: absolute !important; }
+#transport-modal .modal-content { max-height: 90vh; overflow-y: auto; }
+@media (max-width: 768px) { #transport-modal .modal-img-col { min-height: 200px !important; } }
+.detail-list li { display: flex !important; align-items: flex-start !important; }
+.detail-list li::before { flex-shrink: 0 !important; margin-top: 2px !important; margin-right: 12px !important; }
+.modal-features .modal-feature { display: flex !important; align-items: flex-start !important; }
+.modal-features .modal-feature svg, .modal-features .modal-feature i { flex-shrink: 0 !important; margin-top: 4px !important; }
+
