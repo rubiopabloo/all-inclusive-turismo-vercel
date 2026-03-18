@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>San Luis (Merlo) | Estudiantil | All Inclusive Turismo</title>
+    <!-- Google Fonts: Poppins & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- Transparent Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container container-nav">
+            <div class="logo">
+                <a href="index.html">All Inclusive <span>Turismo</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#paquetes">Paquetes</a></li>
+                <li><a href="index.html#estudiantil">Estudiantil</a></li>
+                <li><a href="nosotros.html">Sobre nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="destination-hero" style="background-image: url('NUEVASANLUIS.jpg');">
+        <div class="container fade-in">
+            <h1>San Luis (Merlo)</h1>
+            <p>Explora paisajes serranos y microclimas únicos en una aventura total</p>
+            <a href="#contacto" class="btn btn-primary">Consultar viaje</a>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="section packages-details">
+        <div class="container">
+            <h2 class="section-title reveal">Programas Disponibles</h2>
+            
+            <div class="packages-tabs-container reveal">
+                <!-- Tabs -->
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="openTab(event, 'programa-5d')">5 Días / 3 Noches</button>
+                    <button class="tab-btn" onclick="openTab(event, 'programa-4d')">4 Días / 2 Noches</button>
+                    <button class="tab-btn" onclick="openTab(event, 'programa-full')">Full 2 Noches</button>
+                    <button class="tab-btn" onclick="openTab(event, 'programa-basico')">Paquete Básico</button>
+                </div>
+
+                <!-- 5 Días Tab -->
+                <div id="programa-5d" class="tab-pane active">
+                    <div class="package-details-card">
+                        <div class="package-header">
+                            <h3>Programa 5 Días / 3 Noches</h3>
+                            <div class="price-badge">$1.200.000</div>
+                        </div>
+
+                        <div class="itinerary-grid">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-hotel"></i> Servicios Incluidos</h4>
+                                <ul class="detail-list">
+                                    <li><strong>Transporte:</strong> Unidades de última generación</li>
+                                    <li><strong>Hotelería:</strong> Exclusiva con piscina y espacios recreativos</li>
+                                    <li><strong>Alimentación:</strong> Pensión completa</li>
+                                    <li><strong>Coordinación:</strong> Coordinación 24/7</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-map-marked-alt"></i> Excursiones & Aventura</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-city"></i> City tour cultural</span>
+                                    <span class="activity-tag"><i class="fas fa-hiking"></i> Senderismo</span>
+                                    <span class="activity-tag"><i class="fas fa-mountain"></i> Filo serrano + Tirolesa</span>
+                                    <span class="activity-tag"><i class="fas fa-kayak"></i> Multiaventura (kayak, escalada)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-glass-cheers"></i> Experiencia</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-star"></i> Astroturismo</span>
+                                    <span class="activity-tag"><i class="fas fa-fire"></i> Fogón + Fiesta Despedida</span>
+                                    <span class="activity-tag"><i class="fas fa-gamepad"></i> Recreación</span>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-shield-alt"></i> Seguridad Integral</h4>
+                                <ul class="detail-list">
+                                    <li>Seguros de responsabilidad civil y accidentes personales</li>
+                                    <li>Asistencia médica 24/7</li>
+                                    <li>Ficha médica y pulseras</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="cta-section">
+                            <a href="#contacto" class="btn btn-primary">Reservar Lugar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Días Tab -->
+                <div id="programa-4d" class="tab-pane">
+                    <div class="package-details-card">
+                        <div class="package-header">
+                            <h3>Programa 4 Días / 2 Noches</h3>
+                            <div class="price-badge">$1.000.000</div>
+                        </div>
+
+                        <div class="itinerary-grid">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-hotel"></i> Servicios Incluidos</h4>
+                                <ul class="detail-list">
+                                    <li><strong>Transporte:</strong> Unidades de última generación</li>
+                                    <li><strong>Hotelería:</strong> Exclusiva con piscina</li>
+                                    <li><strong>Alimentación:</strong> Pensión completa</li>
+                                    <li><strong>Coordinación:</strong> Coordinación 24/7</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-map-marked-alt"></i> Excursiones & Aventura</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-city"></i> City tour cultural</span>
+                                    <span class="activity-tag"><i class="fas fa-hiking"></i> Senderismo</span>
+                                    <span class="activity-tag"><i class="fas fa-mountain"></i> Filo serrano</span>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-glass-cheers"></i> Experiencia</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-fire"></i> Fogón + Fiesta Despedida</span>
+                                    <span class="activity-tag"><i class="fas fa-star"></i> Astroturismo</span>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-shield-alt"></i> Seguridad Integral</h4>
+                                <ul class="detail-list">
+                                    <li>Seguro médico y de viaje completo</li>
+                                    <li>Coordinación general</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="cta-section">
+                            <a href="#contacto" class="btn btn-primary">Reservar Lugar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full 2 Noches Tab -->
+                <div id="programa-full" class="tab-pane">
+                    <div class="package-details-card">
+                        <div class="package-header">
+                            <h3>Programa Full 2 Noches</h3>
+                            <div class="price-badge">$234.600</div>
+                        </div>
+
+                        <div class="itinerary-grid">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-hotel"></i> Servicios Incluidos</h4>
+                                <ul class="detail-list">
+                                    <li><strong>Transporte:</strong> Incluido</li>
+                                    <li><strong>Hotelería:</strong> Alojamiento por 2 noches</li>
+                                    <li><strong>Alimentación:</strong> Pensión completa</li>
+                                    <li><strong>Coordinación:</strong> Coordinación 24/7</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-map-marked-alt"></i> Actividades Destacadas</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-hiking"></i> Senderismo</span>
+                                    <span class="activity-tag"><i class="fas fa-camera"></i> Visita Miradores</span>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-glass-cheers"></i> Experiencia Corta</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-gamepad"></i> Recreación</span>
+                                    <span class="activity-tag"><i class="fas fa-music"></i> Noche de Integración</span>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-shield-alt"></i> Seguridad Integral</h4>
+                                <ul class="detail-list">
+                                    <li>Seguro médico completo</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="cta-section">
+                            <a href="#contacto" class="btn btn-primary">Reservar Lugar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Básico Tab -->
+                <div id="programa-basico" class="tab-pane">
+                    <div class="package-details-card">
+                        <div class="package-header">
+                            <h3>Paquete Básico</h3>
+                            <div class="price-badge">$169.400</div>
+                        </div>
+
+                        <div class="itinerary-grid">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-hotel"></i> Servicios Inciales</h4>
+                                <ul class="detail-list">
+                                    <li><strong>Transporte:</strong> Incluido</li>
+                                    <li><strong>Hotelería:</strong> Alojamiento estándar</li>
+                                    <li><strong>Alimentación:</strong> Media pensión</li>
+                                    <li><strong>Coordinación:</strong> Coordinación 24/7</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-map-marked-alt"></i> Actividades</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-city"></i> Paseos libres</span>
+                                    <span class="activity-tag"><i class="fas fa-walking"></i> City tour introductorio</span>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-glass-cheers"></i> Experiencia Base</h4>
+                                <div class="activities-tags">
+                                    <span class="activity-tag"><i class="fas fa-users"></i> Actividades grupales</span>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4><i class="fas fa-shield-alt"></i> Seguridad Integral</h4>
+                                <ul class="detail-list">
+                                    <li>Cobertura de seguro básica</li>
+                                    <li>Asistencia médica local</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="cta-section">
+                            <a href="#contacto" class="btn btn-primary">Reservar Lugar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <h2 class="section-title reveal">Contacto</h2>
+            <p class="section-intro reveal">¿Listo para que tu colegio viaje a San Luis? Completá el formulario.</p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info reveal">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>allinclusiveturismo@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+54 11 2325 8119</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p>@allinclusiveturismo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" action="https://formsubmit.co/allinclusiveturismo@gmail.com" method="POST">
+                    <input type="hidden" name="_next" value="https://allinclusiveturismo.com.ar/gracias.html">
+                    <input type="hidden" name="_subject" value="Consulta Viaje a San Luis (Merlo)">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <input type="hidden" name="destino_interes" value="San Luis (Merlo) Estudiantil">
+
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="colegio" placeholder="Colegio / Institución" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mensaje" placeholder="¡Hola! Quiero info de este viaje para mi curso..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Quiero info de este viaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <h3>All Inclusive <span>Turismo</span></h3>
+                    <p>Creamos experiencias de viaje inolvidables, combinando organización, seguridad y más de 30 años de experiencia en turismo.</p>
+                    <div class="footer-logos-container">
+                        <img src="footer.png" alt="All Inclusive Logo" class="footer-logo">
+                        <img src="rnav.png" alt="RNAV Logo" class="footer-logo rnav">
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#estudiantil">Viajes Estudiantiles</a></li>
+                        <li><a href="nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> allinclusiveturismo@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +54 11 2325 8119</li>
+                        <li><i class="fab fa-instagram"></i> @allinclusiveturismo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 All Inclusive Turismo — Todos los derechos reservados</p>
+                <p class="created-by">Creado por Headliner © con amor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/541123258119" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="main.js"></script>
+    <script>
+        // Tab functionality for packages
+        function openTab(evt, tabName) {
+            var i, tabContent, tabBtns;
+            
+            tabContent = document.getElementsByClassName("tab-pane");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+                tabContent[i].classList.remove("active");
+            }
+            
+            tabBtns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].className = tabBtns[i].className.replace(" active", "");
+            }
+            
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
