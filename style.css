@@ -1457,20 +1457,9 @@ body.modal-open {
     list-style: none;
 }
 
-.detail-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-light);
-}
 
-.detail-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-}
+
+
 
 .activities-tags {
     display: flex;
@@ -2070,8 +2059,26 @@ svg { width: 1em; height: 1em; vertical-align: -0.125em; }
 #transport-modal .close-modal { position: absolute !important; }
 #transport-modal .modal-content { max-height: 90vh; overflow-y: auto; }
 @media (max-width: 768px) { #transport-modal .modal-img-col { min-height: 200px !important; } }
-.detail-list li { display: flex !important; align-items: flex-start !important; }
-.detail-list li::before { flex-shrink: 0 !important; margin-top: 2px !important; margin-right: 12px !important; }
-.modal-features .modal-feature { display: flex !important; align-items: flex-start !important; }
-.modal-features .modal-feature svg, .modal-features .modal-feature i { flex-shrink: 0 !important; margin-top: 4px !important; }
 
+
+
+
+
+
+/* --- Masonry Fix for Itinerary Grid --- */
+.itinerary-grid {
+    display: block !important;
+    column-count: 2;
+    column-gap: 2rem;
+}
+.itinerary-grid > .detail-section {
+    break-inside: avoid !important;
+    margin-bottom: 2rem;
+    display: inline-block;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .itinerary-grid {
+        column-count: 1;
+    }
+}
