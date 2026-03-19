@@ -2057,7 +2057,7 @@ svg { width: 1em; height: 1em; vertical-align: -0.125em; }
 
 /* --- Indentation and Mobile Modal Fixes --- */
 #transport-modal .close-modal { position: absolute !important; }
-#transport-modal .modal-content { max-height: 90vh; overflow-y: auto; }
+
 @media (max-width: 768px) { #transport-modal .modal-img-col { min-height: 200px !important; } }
 
 
@@ -2082,3 +2082,4 @@ svg { width: 1em; height: 1em; vertical-align: -0.125em; }
         column-count: 1;
     }
 }
+
