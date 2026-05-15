@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes Estudiantiles | All Inclusive Turismo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=DM+Sans:wght@400;500;700&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-wrapper">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text orange">All Inclusive Turismo</span>
+                </a>
+            </div>
+            
+            <div class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#paquetes">Paquetes</a>
+                        <div class="nav-dropdown">
+                            <a href="nacionales-internacionales.html">Turismo</a>
+                            <a href="cruceros.html">Cruceros</a>
+                            <a href="jubilados.html">Jubilados</a>
+                            <a href="estudiantiles.html">Estudiantiles</a>
+                            <a href="xv.html">Viajes de XV</a>
+                            <a href="traslados.html">Traslados</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="index.html#egresados">Egresados</a>
+                        <div class="nav-dropdown">
+                            <a href="egresados-primario.html">Primario</a>
+                            <a href="egresados-secundario.html">Secundario</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">Sobre Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-right desktop-only">
+                <a href="auth.html" class="nav-icon-link"><i data-lucide="user"></i></a>
+            </div>
+
+            <button class="mobile-menu-toggle mobile-only" aria-label="Abrir menú">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <button class="drawer-close" aria-label="Cerrar menú">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#paquetes">Paquetes</a></li>
+            <li><a href="index.html#egresados">Egresados</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- HERO SUBPAGE -->
+        <section class="hero-subpage" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Estudiantes PORTADA.jpeg');">
+            <div class="container text-center">
+                <h1 class="font-montserrat">Viajes Estudiantiles</h1>
+                <p>Diversión, seguridad y los mejores destinos para grupos escolares</p>
+            </div>
+        </section>
+
+        <!-- DESCRIPTION SECTION -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="grid-2 align-center">
+                    <div>
+                        <h2 class="font-montserrat">Tu viaje, tu grupo</h2>
+                        <p>Diseñamos viajes educativos y de egresados para grupos de todos los niveles. Nos enfocamos en la seguridad de los chicos y la tranquilidad de los padres.</p>
+                        <p>Coordinadores especializados, buses habilitados y los hoteles más divertidos con todo incluido.</p>
+                    </div>
+                    <div>
+                        <img src="ESTUDIANTILESENVIAJE.png" alt="Estudiantes en viaje" class="rounded-lg shadow-lg" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PACKAGES GRID -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header-flex" style="margin-bottom: 4rem;">
+                    <div class="section-header-text" style="position: relative; overflow: visible;">
+                        <!-- Background Watermark -->
+                        <div class="watermark-text">DESTINOS</div>
+                        <h2 class="font-montserrat" style="font-size: 1.5rem; position: relative; z-index: 2;">Destinos Favoritos</h2>
+                    </div>
+                    <div class="carousel-nav-btns">
+                        <button class="swiper-button-prev-est"><i data-lucide="arrow-left"></i></button>
+                        <button class="swiper-button-next-est"><i data-lucide="arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Swiper -->
+                <div class="swiper estudiantiles-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Villa Carlos Paz -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-teal">
+                                <div class="dest-card-image">
+                                    <img src="VILLACARLOSPAZ.png" alt="Villa Carlos Paz" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>VILLA <br> CARLOS PAZ</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mendoza -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-orange">
+                                <div class="dest-card-image">
+                                    <img src="Mendoza.jpg" alt="Mendoza" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>MENDOZA <br> ARGENTINA</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Misiones -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-pink">
+                                <div class="dest-card-image">
+                                    <img src="NUEVAMISIONES.jpg" alt="Misiones Cataratas" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>MISIONES <br> CATARATAS</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tigre -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-blue">
+                                <div class="dest-card-image">
+                                    <img src="Tigre.jpg" alt="Tigre Buenos Aires" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>TIGRE <br> BS AS</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Luján -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-teal">
+                                <div class="dest-card-image">
+                                    <img src="Lujan.jpg" alt="Luján" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>LUJÁN <br> BS AS</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- San Luis -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-orange">
+                                <div class="dest-card-image">
+                                    <img src="NUEVASANLUIS.jpg" alt="San Luis" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>SAN LUIS <br> POTRERO</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NOA -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-pink">
+                                <div class="dest-card-image">
+                                    <img src="NOA.jpg" alt="Norte Argentino" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>NOA <br> NORTE</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mar del Plata -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-blue">
+                                <div class="dest-card-image">
+                                    <img src="NUEVACOSTA.jpg" alt="Mar del Plata" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>MAR DEL <br> PLATA</h3>
+                                    <a href="https://wa.me/5491100000000" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTACT HORIZONTAL CARD -->
+                <div class="contact-card-horizontal">
+                    <a href="https://wa.me/5491100000000" class="contact-card-link-full">
+                        <div class="contact-card-body">
+                            <h2>CONTACTANOS</h2>
+                            <p>PARA ASESORARTE EN BASE A TUS NECESIDADES</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand">
+                <div class="logo-text white" style="margin-bottom: 1.5rem;">All Inclusive Turismo</div>
+                <p>ALL INCLUSIVE TURISMO S.R.L.</p>
+                <p>Pilar, Buenos Aires, Argentina</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Destinos</h4>
+                <ul>
+                    <li><a href="jubilados.html">Jubilados</a></li>
+                    <li><a href="nacionales-internacionales.html">Nacionales / Internacionales</a></li>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="xv.html">Quinceañeras</a></li>
+                    <li><a href="cruceros.html">Cruceros</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Preguntas</a></li>
+                    <li><a href="auth.html">Mi Cuenta</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#">RR.HH.</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container flex-bottom">
+                <p>Términos y condiciones | Políticas de Privacidad | © All Inclusive Turismo 2026. Todos los derechos reservados. Leg. N°20856 | Powered by HAZE</p>
+                <a href="#navbar" class="back-to-top" aria-label="Volver arriba">
+                    <i data-lucide="chevron-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/541123258119" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.634 1.437h.005c6.558 0 11.894-5.338 11.897-11.896a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <style>
+        .hero-subpage {
+            height: 40vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding-top: 80px;
+        }
+        .hero-subpage h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 10px; }
+        .hero-subpage p { font-size: 1.2rem; opacity: 0.9; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .align-center { align-items: center; }
+        .rounded-lg { border-radius: 0; }
+        .shadow-lg { box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        /* Custom Accent Color for Estudiantiles (Teal) */
+        .btn-explore { background-color: #00D1B2; transition: all 0.3s ease; }
+        .btn-explore:hover { background-color: #00B89C; transform: translateY(-2px); }
+        .dest-card-link { color: white; border-bottom: 1px solid white; }
+        .dest-card-link:hover { color: #00D1B2; border-bottom-color: #00D1B2; }
+
+        .section-header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .carousel-nav-btns {
+            display: flex;
+            gap: 12px;
+        }
+
+        .swiper-button-prev-est,
+        .swiper-button-next-est {
+            width: 45px;
+            height: 45px;
+            border-radius: 0;
+            border: 2px solid #eee;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--color-text-primary);
+        }
+
+        .swiper-button-prev-est:hover,
+        .swiper-button-next-est:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: var(--color-surface);
+        }
+
+        /* Contact Horizontal Card */
+        .contact-card-horizontal {
+            margin-top: 4rem;
+            width: 100%;
+            background-color: #00D1B2; /* Estudiantiles Teal */
+            transition: transform 0.3s ease;
+        }
+        .contact-card-horizontal:hover { transform: scale(1.01); }
+        .contact-card-link-full { text-decoration: none; color: white; display: block; }
+        .contact-card-body {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .contact-card-body h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .contact-card-body p {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-weight: 700;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        /* Estudiantiles page accent color override - teal */
+        img { border-bottom-color: #00D1B2; }
+        .btn-primary, .btn-explore { background: #00D1B2; }
+        .btn-primary:hover, .btn-explore:hover { background: #00B89C; box-shadow: 0 4px 12px rgba(0, 209, 178, 0.3); }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Initialize Estudiantiles Swiper
+        new Swiper('.estudiantiles-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next-est',
+                prevEl: '.swiper-button-prev-est',
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1440: { slidesPerView: 4 }
+            }
+        });
+    </script>
+</body>
+</html>

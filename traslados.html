@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traslados y Logística | All Inclusive Turismo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=DM+Sans:wght@400;500;700&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-wrapper">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text orange">All Inclusive Turismo</span>
+                </a>
+            </div>
+            
+            <div class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#paquetes">Paquetes</a>
+                        <div class="nav-dropdown">
+                            <a href="nacionales-internacionales.html">Turismo</a>
+                            <a href="cruceros.html">Cruceros</a>
+                            <a href="jubilados.html">Jubilados</a>
+                            <a href="estudiantiles.html">Estudiantiles</a>
+                            <a href="xv.html">Viajes de XV</a>
+                            <a href="traslados.html">Traslados</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="index.html#egresados">Egresados</a>
+                        <div class="nav-dropdown">
+                            <a href="egresados-primario.html">Primario</a>
+                            <a href="egresados-secundario.html">Secundario</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">Sobre Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-right desktop-only">
+                <a href="#" class="nav-icon-link"><i data-lucide="search"></i></a>
+                <a href="#" class="nav-icon-link"><i data-lucide="shopping-cart"></i></a>
+                <a href="auth.html" class="nav-icon-link"><i data-lucide="user"></i></a>
+            </div>
+
+            <button class="mobile-menu-toggle mobile-only" aria-label="Abrir menú">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <button class="drawer-close" aria-label="Cerrar menú">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#paquetes">Paquetes</a></li>
+            <li><a href="index.html#egresados">Egresados</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- HERO SUBPAGE -->
+        <section class="hero-subpage-traslados">
+            <div class="container text-center">
+                <h1 class="font-montserrat">Traslados y Logística</h1>
+                <p>Seguridad y confort en cada kilómetro de tu viaje grupal</p>
+            </div>
+        </section>
+
+        <!-- FLOTA SECTION -->
+        <section class="flota-section relative overflow-hidden">
+            <!-- Abstract Blobs -->
+            <div class="blob blob-peach"></div>
+            <div class="blob blob-orange-main"></div>
+            
+            <div class="flota-container">
+                <div class="flota-grid">
+                    <div class="flota-image-wrapper">
+                        <img src="ALLINCLUSIVEBUS.png" alt="All Inclusive Bus" class="bus-image-flush" loading="lazy">
+                    </div>
+                    <div class="flota-content">
+                        <h2 class="font-montserrat">Flota de última generación</h2>
+                        <p>Contamos con unidades propias y convenientes con las mejores empresas de transporte del país. Nuestros buses están equipados con tecnología satelital Starlink, pantallas LED y choferes altamente capacitados.</p>
+                        <p>Brindamos servicios de traslados para eventos, viajes corporativos, escolares y turísticos en todo el territorio nacional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSPORT SERVICES SECTION -->
+        <section class="section-padding bg-white relative transport-services">
+            <div class="container relative">
+                <div class="section-header text-center" style="margin-bottom: 5rem; position: relative; overflow: visible;">
+                    <!-- Background Text centered behind title -->
+                    <div class="watermark-text">TRANSPORTE</div>
+                    <h2 class="font-montserrat" style="font-size: 1.5rem; position: relative; z-index: 2;">Nuestros Servicios de Transporte</h2>
+                </div>
+                
+                <div class="transport-grid">
+                    <div class="transport-card">
+                        <div class="transport-icon"><i data-lucide="bus"></i></div>
+                        <h3>Buses de Larga Distancia</h3>
+                        <p>Unidades Semi-Cama y Cama con climatización, baño y sistema de entretenimiento a bordo.</p>
+                    </div>
+                    <div class="transport-card">
+                        <div class="transport-icon"><i data-lucide="shield-check"></i></div>
+                        <h3>Seguridad Certificada</h3>
+                        <p>Todas las unidades cuentan con habilitación CNRT y seguimiento satelital en tiempo real.</p>
+                    </div>
+                    <div class="transport-card">
+                        <div class="transport-icon"><i data-lucide="wifi"></i></div>
+                        <h3>Conectividad StarLink</h3>
+                        <p>Mantenete conectado durante todo el viaje con el internet satelital más rápido del mundo.</p>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top: 4rem;">
+                    <a href="https://wa.me/5491100000000" class="btn-shadcn btn-shadcn-outline" style="min-width: 250px;">Solicitar Cotización</a>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand">
+                <div class="logo-text white" style="margin-bottom: 1.5rem;">All Inclusive Turismo</div>
+                <p>ALL INCLUSIVE TURISMO S.R.L.</p>
+                <p>Pilar, Buenos Aires, Argentina</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Destinos</h4>
+                <ul>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="xv.html">Quinceañeras</a></li>
+                    <li><a href="jubilados.html">Jubilados</a></li>
+                    <li><a href="cruceros.html">Cruceros</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Preguntas</a></li>
+                    <li><a href="auth.html">Mi Cuenta</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#">RR.HH.</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container flex-bottom">
+                <p>Términos y condiciones | Políticas de Privacidad | © All Inclusive Turismo 2026. Todos los derechos reservados. Leg. N°20856 | Powered by HAZE</p>
+                <a href="#navbar" class="back-to-top" aria-label="Volver arriba">
+                    <i data-lucide="chevron-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/541123258119" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <style>
+        .hero-subpage-traslados {
+            height: 45vh;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Traslados PORTADA.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding-top: 80px;
+        }
+        .hero-subpage-traslados h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 10px; }
+        .hero-subpage-traslados p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Flota Section */
+        .flota-section { padding: 80px 0; background: white; }
+        .flota-container { width: 100%; max-width: 1400px; margin: 0 auto; padding-right: 40px; }
+        .flota-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        
+        .flota-image-wrapper { position: relative; z-index: 2; margin-left: -5%; }
+        .bus-image-flush { 
+            width: 110%; 
+            height: auto; 
+            border-bottom: 0 !important; /* Override global img border */
+        }
+        
+        .flota-content { z-index: 2; }
+        .flota-content h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+        .flota-content p { margin-bottom: 1rem; color: #444; line-height: 1.6; }
+
+        /* Blobs */
+        .blob { position: absolute; border-radius: 50%; pointer-events: none; }
+        .blob-peach { 
+            top: -50px; 
+            right: -50px; 
+            width: 300px; 
+            height: 300px; 
+            background: #ffaa7d; 
+            opacity: 1;
+            border-radius: 45% 55% 74% 26% / 30% 30% 70% 70%;
+        }
+        .blob-orange-main {
+            bottom: 80px;
+            left: 5%;
+            width: 450px;
+            height: 250px;
+            background: #f57c00;
+            border-radius: 71% 29% 34% 66% / 47% 29% 71% 53%;
+            opacity: 1;
+        }
+
+        
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .transport-card {
+            background: white;
+            padding: 40px 30px;
+            border: 1px solid #eee;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        .transport-card:hover { border-color: var(--color-primary); }
+        
+        .transport-icon { color: var(--color-primary); margin-bottom: 25px; }
+        .transport-icon i { width: 32px; height: 32px; stroke-width: 1.5px; }
+        
+        .transport-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-family: var(--font-display); }
+        .transport-card p { color: #666; font-size: 0.95rem; line-height: 1.5; }
+
+        @media (max-width: 1024px) {
+            .flota-grid { grid-template-columns: 1fr; }
+            .flota-image-wrapper { margin-left: 0; }
+            .bus-image-flush { width: 100%; }
+            .flota-container { padding: 0 20px; }
+            .transport-grid { grid-template-columns: 1fr; }
+            .bg-text-overlay { font-size: 20vw; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

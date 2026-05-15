@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Inclusive Turismo | Viajes de Egresados, Jubilados, Quinceañeras y Más</title>
+    <meta name="description" content="Agencia de turismo argentina con más de 30 años de experiencia. Viajes de egresados, paquetes para jubilados, quinceañeras a Disney y traslados grupales. Cotizá tu viaje hoy.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=DM+Sans:wght@400;500;700&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (via CDN for simplicity) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="header-transparent">
+
+    <!-- PANTALLA DE CARGA -->
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="container nav-wrapper">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text orange">All Inclusive Turismo</span>
+                </a>
+            </div>
+            
+            <div class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li class="has-dropdown">
+                        <a href="#paquetes">Paquetes</a>
+                        <div class="nav-dropdown">
+                            <a href="nacionales-internacionales.html">Turismo</a>
+                            <a href="cruceros.html">Cruceros</a>
+                            <a href="jubilados.html">Jubilados</a>
+                            <a href="estudiantiles.html">Estudiantiles</a>
+                            <a href="xv.html">Viajes de XV</a>
+                            <a href="traslados.html">Traslados</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#egresados">Egresados</a>
+                        <div class="nav-dropdown">
+                            <a href="egresados-primario.html">Primario</a>
+                            <a href="egresados-secundario.html">Secundario</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">Sobre Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-right desktop-only">
+                <a href="auth.html" class="nav-icon-link"><i data-lucide="user"></i></a>
+            </div>
+
+            <button class="mobile-menu-toggle mobile-only" aria-label="Abrir menú">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <button class="drawer-close" aria-label="Cerrar menú">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#paquetes">Paquetes</a></li>
+            <li><a href="#egresados">Egresados</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="https://wa.me/5491100000000" class="btn btn-primary full-width">
+                <i data-lucide="message-circle"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <!-- SECCIÓN 1: HERO -->
+        <section id="inicio" class="hero">
+            <div class="hero-bg" style="background-image: url('HEROALLINCLUSIVE.png');"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content text-center">
+                <h1 class="animate-up font-montserrat text-white" style="--delay: 0.2s">CREANDO ANÉCDOTAS INOLVIDABLES</h1>
+                <p class="hero-subtitle animate-up text-white" style="--delay: 0.4s">
+                    Aventuras a tu medida, recuerdos que duran para toda la vida
+                </p>
+            </div>
+            <div class="scroll-indicator">
+                <i data-lucide="mouse"></i>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: ¿POR QUÉ VIAJAR CON NOSOTROS? (Rediseñada) -->
+        <section class="features-new section-padding">
+            <div class="container relative">
+                <div class="watermark-text">NOSOTROS</div>
+                <div class="section-header text-center">
+                    <h2 class="title-dark">¿Por qué viajar con nosotros?</h2>
+                </div>
+                <div class="features-grid-new">
+                    <div class="feature-card-new reveal">
+                        <div class="feature-icon-new"><i data-lucide="shield-check"></i></div>
+                        <h3>Seguridad</h3>
+                        <p>Planificación profesional y transporte confiable.</p>
+                    </div>
+                    <div class="feature-card-new reveal">
+                        <div class="feature-icon-new"><i data-lucide="calendar-check"></i></div>
+                        <h3>Organización</h3>
+                        <p>Nos encargamos de toda la logística del viaje.</p>
+                    </div>
+                    <div class="feature-card-new reveal">
+                        <div class="feature-icon-new"><i data-lucide="star"></i></div>
+                        <h3>Experiencia</h3>
+                        <p>Viajes diseñados para crear recuerdos inolvidables.</p>
+                    </div>
+                    <div class="feature-card-new reveal">
+                        <div class="feature-icon-new"><i data-lucide="users"></i></div>
+                        <h3>Acompañamiento</h3>
+                        <p>Comunicación constante con pasajeros y coordinadores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: PAQUETES (Premium Carousel) -->
+        <section id="paquetes" class="packages-carousel-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header-flex">
+                    <div class="section-header-text">
+                        <h2 class="font-display">Nuestros Paquetes</h2>
+                        <p>Descubrí las mejores experiencias diseñadas para cada etapa de tu vida.</p>
+                    </div>
+                    <div class="carousel-nav-btns">
+                        <button class="swiper-button-prev-custom"><i data-lucide="arrow-left"></i></button>
+                        <button class="swiper-button-next-custom"><i data-lucide="arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Swiper -->
+                <div class="swiper packages-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Card: Nacionales e Internacionales -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-pink">
+                                <div class="dest-card-image">
+                                    <img src="nacional-internacional PORTADA.jpeg" alt="Nacionales e Internacionales">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>TURISMO</h3>
+                                    <a href="nacionales-internacionales.html" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card: Cruceros -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-blue">
+                                <div class="dest-card-image">
+                                    <img src="CRUCEROSCARD.png" alt="Cruceros" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>CRU <br> CEROS</h3>
+                                    <a href="cruceros.html" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card: Jubilados -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-orange">
+                                <div class="dest-card-image">
+                                    <img src="Jubilados Portada.jpg" alt="Jubilados" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>JUBI <br> LADOS</h3>
+                                    <a href="jubilados.html" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card: Estudiantiles -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-teal">
+                                <div class="dest-card-image">
+                                    <img src="Estudiantes PORTADA.jpeg" alt="Estudiantiles" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>ESTUDIAN <br> TILES</h3>
+                                    <a href="estudiantiles.html" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card: Viajes de XV -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-blue">
+                                <div class="dest-card-image">
+                                    <img src="Viajes de XV PORTADA.jpeg" alt="Viajes de XV" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>VIAJES <br> DE XV</h3>
+                                    <a href="xv.html" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card: Traslados -->
+                        <div class="swiper-slide">
+                            <div class="dest-card dest-orange">
+                                <div class="dest-card-image">
+                                    <img src="Traslados PORTADA.jpg" alt="Traslados" loading="lazy">
+                                </div>
+                                <div class="dest-card-content">
+                                    <h3>TRAS <br> LADOS</h3>
+                                    <a href="traslados.html" class="dest-card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- SECCIÓN 4: EGRESADOS EXACT REDESIGN -->
+        <section id="egresados" class="egresados-exact">
+            <div class="egresados-overlay"></div>
+            <div class="container-wide egresados-inner">
+                <div class="egresados-top">
+                    <div class="egresados-title-box">
+                        <h2 class="font-montserrat">EGRESADOS #ALL IN!</h2>
+                    </div>
+                    <div class="egresados-destinos">
+                        <span class="big-number font-montserrat">4</span>
+                        <div class="destinos-text font-montserrat">
+                            <span>DESTINOS</span>
+                            <span>ÚNICOS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="egresados-bottom">
+                    <a href="egresados.html" class="catalog-link">Ver catálogo de destinos ></a>
+                    <h3 class="font-montserrat">Viaja con amigos, <br> crea nuevas historias</h3>
+                </div>
+                
+                <div class="dots-decoration"></div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: CONTACTO -->
+        <section id="contacto" class="contacto section-padding relative">
+            <div class="watermark-contacto">CONTACTO</div>
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Hablemos de tu próximo viaje</h2>
+                        <p>Estamos para asesorarte sin compromiso.</p>
+                        
+                        <div class="info-items">
+                            <div class="info-item">
+                                <i data-lucide="message-circle"></i>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>+54 11 2325-8119</p>
+                                    <p>+54 9 266 420-9382</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i data-lucide="mail"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>contacto@allinclusiveturismo.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                                <div>
+                                    <h4>Instagram</h4>
+                                    <p>@allinclusiveturismo</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i data-lucide="map-pin"></i>
+                                <div>
+                                    <h4>Ubicación</h4>
+                                    <p>Pilar, Buenos Aires</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://wa.me/541123258119" class="btn btn-primary btn-lg">
+                            Escribinos por WhatsApp
+                        </a>
+                        
+                        <div class="social-links">
+                            <a href="https://instagram.com/allinclusiveturismo" target="_blank"><i data-lucide="instagram"></i></a>
+                            <a href="#"><i data-lucide="facebook"></i></a>
+                            <a href="#"><i data-lucide="twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Teléfono / WhatsApp">
+                            </div>
+                            <div class="form-group">
+                                <select required>
+                                    <option value="" disabled selected>Tipo de viaje</option>
+                                    <option>Egresados</option>
+                                    <option>Jubilados</option>
+                                    <option>Quinceañeras</option>
+                                    <option>Estudiantil</option>
+                                    <option>Traslado</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Mensaje o consulta" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary full-width">Enviar consulta</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand">
+                <div class="logo-text white" style="margin-bottom: 1.5rem;">All Inclusive Turismo</div>
+                <p>ALL INCLUSIVE TURISMO S.R.L.</p>
+                <p>Pilar, Buenos Aires, Argentina</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Destinos</h4>
+                <ul>
+                    <li><a href="jubilados.html">Jubilados</a></li>
+                    <li><a href="nacionales-internacionales.html">Nacionales / Internacionales</a></li>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="xv.html">Quinceañeras</a></li>
+                    <li><a href="cruceros.html">Cruceros</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Preguntas</a></li>
+                    <li><a href="auth.html">Mi Cuenta</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#">RR.HH.</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container flex-bottom">
+                <p>Términos y condiciones | Políticas de Privacidad | © All Inclusive Turismo 2026. Todos los derechos reservados. Leg. N°20856 | Powered by HAZE</p>
+                <a href="#navbar" class="back-to-top" aria-label="Volver arriba">
+                    <i data-lucide="chevron-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/541123258119" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.634 1.437h.005c6.558 0 11.894-5.338 11.897-11.896a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span class="whatsapp-tooltip">¿Te ayudamos?</span>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="main.js"></script>
+</body>
+</html>

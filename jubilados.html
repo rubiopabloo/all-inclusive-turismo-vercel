@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes para Jubilados | All Inclusive Turismo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=DM+Sans:wght@400;500;700&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-wrapper">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text orange">All Inclusive Turismo</span>
+                </a>
+            </div>
+            
+            <div class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#paquetes">Paquetes</a>
+                        <div class="nav-dropdown">
+                            <a href="nacionales-internacionales.html">Turismo</a>
+                            <a href="cruceros.html">Cruceros</a>
+                            <a href="jubilados.html">Jubilados</a>
+                            <a href="estudiantiles.html">Estudiantiles</a>
+                            <a href="xv.html">Viajes de XV</a>
+                            <a href="traslados.html">Traslados</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="index.html#egresados">Egresados</a>
+                        <div class="nav-dropdown">
+                            <a href="egresados-primario.html">Primario</a>
+                            <a href="egresados-secundario.html">Secundario</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">Sobre Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-right desktop-only">
+                <a href="auth.html" class="nav-icon-link"><i data-lucide="user"></i></a>
+            </div>
+
+            <button class="mobile-menu-toggle mobile-only" aria-label="Abrir menú">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <button class="drawer-close" aria-label="Cerrar menú">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#paquetes">Paquetes</a></li>
+            <li><a href="index.html#egresados">Egresados</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- HERO SUBPAGE -->
+        <section class="hero-subpage" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('JUBILADOSHERO.jpg');">
+            <div class="container text-center">
+                <h1 class="font-montserrat">Viajes para Jubilados</h1>
+                <p>Comodidad, seguridad y los mejores destinos pensados para vos</p>
+            </div>
+        </section>
+
+        <!-- DESCRIPTION SECTION -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="grid-2 align-center">
+                    <div>
+                        <h2 class="font-montserrat">Disfrutá de tu tiempo libre</h2>
+                        <p>En All Inclusive Turismo sabemos que esta es la mejor etapa para viajar. Por eso diseñamos itinerarios tranquilos, con hoteles céntricos, pensión completa y coordinación permanente.</p>
+                        <p>Nuestros paquetes para jubilados incluyen todas las comidas, excursiones guiadas a ritmo pausado y asistencia médica integral para que solo te preocupes por disfrutar.</p>
+                    </div>
+                    <div>
+                        <img src="iguazujubilados.jpg" alt="Jubilados Viajando" class="rounded-lg shadow-lg" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PACKAGES GRID -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 7rem; position: relative;">
+                    <!-- Background Watermark -->
+                    <div class="watermark-text">PAQUETES</div>
+                    <h2 class="font-montserrat" style="position: relative; z-index: 2;">Paquetes Disponibles</h2>
+                </div>
+                
+                <div class="jubilados-package-grid">
+                    <!-- Merlo -->
+                    <div class="package-card-premium">
+                        <img src="merlosanluisjubiladoscanablaya.jpeg" alt="Merlo San Luis" loading="lazy">
+                        <div class="package-card-premium-content">
+                            <h3 class="font-montserrat">MERLO SAN LUIS: 5 DIAS 3 NOCHES</h3>
+                            <div class="package-meta">
+                                <div class="package-meta-item"><i data-lucide="map-pin"></i> <span>San Luis, AR</span></div>
+                                <div class="package-meta-item"><i data-lucide="calendar"></i> <span>Noviembre</span></div>
+                                <div class="package-meta-item"><i data-lucide="info"></i> <span>Pensión Completa</span></div>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;">Bus – Hotel Grupo Cana Blaya – Excursión City Tour</p>
+                            <div class="package-footer">
+                                <div class="package-price">$580.000</div>
+                                <a href="https://wa.me/5491100000000" class="btn-explore">Ver más <i data-lucide="arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carlos Paz -->
+                    <div class="package-card-premium">
+                        <img src="VILLACARLOSPAZ.png" alt="Carlos Paz Córdoba" loading="lazy">
+                        <div class="package-card-premium-content">
+                            <h3 class="font-montserrat">CARLOS PAZ CORDOBA: 7 DIAS 5 NOCHES</h3>
+                            <div class="package-meta">
+                                <div class="package-meta-item"><i data-lucide="map-pin"></i> <span>Córdoba, AR</span></div>
+                                <div class="package-meta-item"><i data-lucide="calendar"></i> <span>Octubre</span></div>
+                                <div class="package-meta-item"><i data-lucide="info"></i> <span>Pensión Completa</span></div>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;">Hotel Cid – Excursión City Tour</p>
+                            <div class="package-footer">
+                                <div class="package-price">$690.000</div>
+                                <a href="https://wa.me/5491100000000" class="btn-explore">Ver más <i data-lucide="arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cataratas -->
+                    <div class="package-card-premium">
+                        <img src="CATARATASIGUAZUFOTO.jpg" alt="Cataratas del Iguazú" loading="lazy">
+                        <div class="package-card-premium-content">
+                            <h3 class="font-montserrat">CATARATAS IGUAZÚ: 7 DIAS 4 NOCHES</h3>
+                            <div class="package-meta">
+                                <div class="package-meta-item"><i data-lucide="map-pin"></i> <span>Misiones, AR</span></div>
+                                <div class="package-meta-item"><i data-lucide="calendar"></i> <span>Septiembre</span></div>
+                                <div class="package-meta-item"><i data-lucide="info"></i> <span>Media Pensión</span></div>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;">Hotel 3* – 2 Excursiones (Lado AR/BR)</p>
+                            <div class="package-footer">
+                                <div class="package-price">$680.000</div>
+                                <a href="https://wa.me/5491100000000" class="btn-explore">Ver más <i data-lucide="arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Termas de Rio Hondo -->
+                    <div class="package-card-premium">
+                        <img src="TERMASRIOHONDOFOTO.jpg" alt="Termas de Río Hondo" loading="lazy">
+                        <div class="package-card-premium-content">
+                            <h3 class="font-montserrat">TERMAS DE RIO HONDO: 10 DIAS 7 NOCHES</h3>
+                            <div class="package-meta">
+                                <div class="package-meta-item"><i data-lucide="map-pin"></i> <span>Stgo del Estero, AR</span></div>
+                                <div class="package-meta-item"><i data-lucide="calendar"></i> <span>Agosto</span></div>
+                                <div class="package-meta-item"><i data-lucide="info"></i> <span>Pensión Completa</span></div>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;">Hotel Tres Estrellas</p>
+                            <div class="package-footer">
+                                <div class="package-price">$885.000</div>
+                                <a href="https://wa.me/5491100000000" class="btn-explore">Ver más <i data-lucide="arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- El Jubilazo -->
+                    <div class="package-card-premium">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800" alt="El Jubilazo" loading="lazy">
+                        <div class="package-card-premium-content">
+                            <h3 class="font-montserrat">EL JUBILAZO Y ALGO MAS…</h3>
+                            <div class="package-meta">
+                                <div class="package-meta-item"><i data-lucide="map-pin"></i> <span>Evento Especial</span></div>
+                                <div class="package-meta-item"><i data-lucide="calendar"></i> <span>19-24 Octubre</span></div>
+                                <div class="package-meta-item"><i data-lucide="info"></i> <span>Pensión Completa</span></div>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;">6 días 4 noches con Bus Incluido</p>
+                            <div class="package-footer">
+                                <div class="package-price">$755.000</div>
+                                <a href="https://wa.me/5491100000000" class="btn-explore">Ver más <i data-lucide="arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand">
+                <div class="logo-text white" style="margin-bottom: 1.5rem;">All Inclusive Turismo</div>
+                <p>ALL INCLUSIVE TURISMO S.R.L.</p>
+                <p>Pilar, Buenos Aires, Argentina</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Destinos</h4>
+                <ul>
+                    <li><a href="jubilados.html">Jubilados</a></li>
+                    <li><a href="nacionales-internacionales.html">Nacionales / Internacionales</a></li>
+                    <li><a href="egresados.html">Egresados</a></li>
+                    <li><a href="xv.html">Quinceañeras</a></li>
+                    <li><a href="cruceros.html">Cruceros</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Preguntas</a></li>
+                    <li><a href="auth.html">Mi Cuenta</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#">RR.HH.</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container flex-bottom">
+                <p>Términos y condiciones | Políticas de Privacidad | © All Inclusive Turismo 2026. Todos los derechos reservados. Leg. N°20856 | Powered by HAZE</p>
+                <a href="#navbar" class="back-to-top" aria-label="Volver arriba">
+                    <i data-lucide="chevron-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/541123258119" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.634 1.437h.005c6.558 0 11.894-5.338 11.897-11.896a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <style>
+        .hero-subpage {
+            height: 40vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding-top: 80px;
+        }
+        .hero-subpage h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 10px; }
+        .hero-subpage p { font-size: 1.2rem; opacity: 0.9; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .align-center { align-items: center; }
+        .rounded-lg { border-radius: 0; }
+        .shadow-lg { box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

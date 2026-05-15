@@ -1,0 +1,7 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 45L35 15L50 45" stroke="#F57C00" stroke-width="4" stroke-linecap="square" />
+  <path d="M25 35H45" stroke="#F57C00" stroke-width="3" />
+  <circle cx="55" cy="15" r="5" fill="#F57C00" />
+  <text x="70" y="38" font-family="'DM Serif Display', serif" font-size="24" fill="#1A1A1A">All Inclusive</text>
+  <text x="70" y="52" font-family="'DM Sans', sans-serif" font-size="12" letter-spacing="0.2em" fill="#616161">TURISMO</text>
+</svg>
