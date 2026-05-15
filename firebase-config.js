@@ -155,4 +155,4 @@ function getErrorMessage(code) {
     return errors[code] || 'Ocurrió un error. Intentá de nuevo.';
 }
 
-export { auth, db, registerWithEmail, loginWithEmail, loginWithGoogle, loginWithFacebook, loginWithApple, logout, getUserRole, onAuthStateChanged };
+export { registerWithEmail, loginWithEmail, loginWithGoogle, loginWithFacebook, loginWithApple, logout, getUserRole, onAuthStateChanged };
