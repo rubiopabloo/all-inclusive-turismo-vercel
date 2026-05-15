@@ -200,7 +200,7 @@
                 </ul>
             </div>
             
-            <div class="nav-right desktop-only">
+            <div class="nav-right desktop-only" id="nav-user-section">
                 <a href="auth.html" class="nav-icon-link"><i data-lucide="user"></i></a>
             </div>
 
@@ -300,6 +300,14 @@
                         <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
                             <input type="checkbox" id="terms" style="width: auto; margin-top: 5px;" required>
                             <label for="terms" style="font-size: 0.875rem;">Acepto los términos y condiciones</label>
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start; margin-top: 15px;">
+                            <input type="checkbox" id="is-agent" style="width: auto; margin-top: 5px;">
+                            <label for="is-agent" style="font-size: 0.875rem; font-weight: 700;">¿Sos Agente de Viajes?</label>
+                        </div>
+                        <div class="form-group" id="agent-code-group" style="display: none; margin-top: 15px;">
+                            <label>Código de Agente</label>
+                            <input type="text" id="agent-code" placeholder="Ingresá tu código">
                         </div>
                         <button type="submit" id="register-btn" class="btn btn-primary full-width">Crear mi cuenta</button>
                     </form>
@@ -419,6 +427,13 @@
                 }
             });
 
+            // AGENT CHECKBOX LOGIC
+            const isAgentCheckbox = document.getElementById('is-agent');
+            const agentCodeGroup = document.getElementById('agent-code-group');
+            isAgentCheckbox.addEventListener('change', (e) => {
+                agentCodeGroup.style.display = e.target.checked ? 'block' : 'none';
+            });
+
             // REGISTER
             const registerForm = document.getElementById('register-form');
             const registerError = document.getElementById('register-error');
@@ -437,6 +452,8 @@
                 const phone = document.getElementById('register-phone').value;
                 const password = document.getElementById('register-password').value;
                 const confirm = document.getElementById('register-confirm').value;
+                const isAgent = isAgentCheckbox.checked;
+                const agentCode = document.getElementById('agent-code').value;
 
                 if (password !== confirm) {
                     registerError.textContent = 'Las contraseñas no coinciden.';
@@ -446,7 +463,20 @@
                     return;
                 }
 
-                const result = await registerWithEmail(email, password, name, phone);
+                let role = 'usuario';
+                if (isAgent) {
+                    if (agentCode === 'ALLINAGENTES') {
+                        role = 'agente';
+                    } else {
+                        registerError.textContent = 'El código de agente es incorrecto.';
+                        registerError.style.display = 'block';
+                        btn.classList.remove('loading');
+                        btn.textContent = 'Crear mi cuenta';
+                        return;
+                    }
+                }
+
+                const result = await registerWithEmail(email, password, name, phone, role);
                 if (result.success) {
                     showLoggedInState(result.user);
                 } else {
@@ -511,15 +541,32 @@
                         <p style="color: var(--color-text-secondary); margin-bottom: 10px;">${user.email}</p>
                         <span class="role-badge">${roleName}</span>
                         <br><br>
-                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Bienvenido/a a All Inclusive Turismo. Pronto vas a poder ver tus reservas y paquetes favoritos acá.</p>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Bienvenido/a a All Inclusive Turismo.</p>
                         <br>
-                        <button id="logout-btn" class="btn btn-primary full-width">Cerrar Sesión</button>
+                        ${(role === 'agente' || role === 'admin') ? '<a href="agent-dashboard.html" class="btn btn-primary full-width" style="margin-bottom: 15px;">Ir a Mi Panel</a>' : ''}
+                        <button id="logout-btn" class="btn btn-outline full-width">Cerrar Sesión</button>
                     </div>
                 `;
                 document.getElementById('logout-btn').addEventListener('click', async () => {
                     await logout();
                     window.location.reload();
                 });
+
+                // Update Navbar
+                const navSection = document.getElementById('nav-user-section');
+                if (navSection) {
+                    let navHtml = `<span style="margin-right: 15px; font-weight: 600; font-size: 0.875rem; color: var(--color-text);">${user.displayName ? user.displayName.split(' ')[0] : 'Usuario'}</span>`;
+                    if (role === 'agente' || role === 'admin') {
+                        navHtml += `<a href="agent-dashboard.html" class="btn" style="background: var(--color-primary); color: white; border: none; padding: 6px 14px; margin-right: 15px; font-size: 0.875rem; border-radius: 4px; text-decoration: none;">Mi Panel</a>`;
+                    }
+                    navHtml += `<button id="nav-logout-btn" class="btn" style="background: transparent; color: var(--color-text); border: 1px solid #ccc; padding: 6px 14px; font-size: 0.875rem; border-radius: 4px; cursor: pointer;">Cerrar Sesión</button>`;
+                    navSection.innerHTML = navHtml;
+
+                    document.getElementById('nav-logout-btn').addEventListener('click', async () => {
+                        await logout();
+                        window.location.reload();
+                    });
+                }
             }
 
             if (window.lucide) window.lucide.createIcons();

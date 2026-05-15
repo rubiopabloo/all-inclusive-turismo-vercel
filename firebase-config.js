@@ -5,7 +5,7 @@ import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.
 
 const firebaseConfig = {
     apiKey: "AIzaSyCinZvj1_Ea_8eljH0Wr8pA3irmLdM8hos",
-    authDomain: "all-inclusive-turismo-web.firebaseapp.com",
+    authDomain: "allinclusiveturismo.com",
     projectId: "all-inclusive-turismo-web",
     storageBucket: "all-inclusive-turismo-web.firebasestorage.app",
     messagingSenderId: "418240833161",
@@ -60,11 +60,11 @@ async function getUserRole(uid) {
 /**
  * Register with email/password
  */
-async function registerWithEmail(email, password, displayName, phone = '') {
+async function registerWithEmail(email, password, displayName, phone = '', role = 'usuario') {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         await updateProfile(userCredential.user, { displayName: displayName });
-        await createUserDocument(userCredential.user, 'usuario', { displayName, phone });
+        await createUserDocument(userCredential.user, role, { displayName, phone });
         return { success: true, user: userCredential.user };
     } catch (error) {
         return { success: false, error: getErrorMessage(error.code) };
