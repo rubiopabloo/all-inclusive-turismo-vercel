@@ -1,6 +1,6 @@
 // Firebase Configuration - All Inclusive Turismo
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, OAuthProvider, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -17,6 +17,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const appleProvider = new OAuthProvider('apple.com');
 
 // User roles: 'usuario', 'agente', 'admin'
 
@@ -96,6 +98,32 @@ async function loginWithGoogle() {
 }
 
 /**
+ * Login with Facebook
+ */
+async function loginWithFacebook() {
+    try {
+        const result = await signInWithPopup(auth, facebookProvider);
+        await createUserDocument(result.user);
+        return { success: true, user: result.user };
+    } catch (error) {
+        return { success: false, error: getErrorMessage(error.code) };
+    }
+}
+
+/**
+ * Login with Apple
+ */
+async function loginWithApple() {
+    try {
+        const result = await signInWithPopup(auth, appleProvider);
+        await createUserDocument(result.user);
+        return { success: true, user: result.user };
+    } catch (error) {
+        return { success: false, error: getErrorMessage(error.code) };
+    }
+}
+
+/**
  * Logout
  */
 async function logout() {
@@ -114,7 +142,7 @@ function getErrorMessage(code) {
     const errors = {
         'auth/email-already-in-use': 'Este correo electrónico ya está registrado.',
         'auth/invalid-email': 'El correo electrónico no es válido.',
-        'auth/operation-not-allowed': 'Operación no permitida.',
+        'auth/operation-not-allowed': 'El inicio de sesión no está habilitado.',
         'auth/weak-password': 'La contraseña debe tener al menos 6 caracteres.',
         'auth/user-disabled': 'Esta cuenta ha sido deshabilitada.',
         'auth/user-not-found': 'No existe una cuenta con este correo.',
@@ -127,4 +155,4 @@ function getErrorMessage(code) {
     return errors[code] || 'Ocurrió un error. Intentá de nuevo.';
 }
 
-export { auth, db, registerWithEmail, loginWithEmail, loginWithGoogle, logout, getUserRole, onAuthStateChanged };
+export { auth, db, registerWithEmail, loginWithEmail, loginWithGoogle, loginWithFacebook, loginWithApple, logout, getUserRole, onAuthStateChanged };
