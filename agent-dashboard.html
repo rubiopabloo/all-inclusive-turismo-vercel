@@ -4,47 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Panel | All Inclusive Turismo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=DM+Sans:wght@400;500;700&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <style>
         body {
-            background-color: #f8fafc; /* Very light cool gray background */
+            background-color: var(--color-background);
+            font-family: var(--font-body);
         }
         
         .dashboard-container {
             display: flex;
             min-height: calc(100vh - 80px);
             margin-top: 80px;
-            max-width: 1600px;
+            max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
+            padding: 20px;
+            gap: 30px;
         }
 
         .dashboard-sidebar {
             width: 280px;
-            background: white;
-            border-right: 1px solid rgba(0,0,0,0.05);
-            padding: 40px 24px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-outline-variant);
+            border-radius: 20px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            height: fit-content;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .dashboard-main {
             flex: 1;
-            padding: 48px;
             overflow-y: auto;
+            padding-bottom: 40px;
         }
 
         .user-info-card {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #ff6b00 100%);
+            background: var(--color-primary-container);
             border-radius: 16px;
             padding: 24px;
-            color: white;
-            margin-bottom: 32px;
-            box-shadow: 0 10px 25px -5px rgba(255, 107, 0, 0.3);
+            color: var(--color-on-primary);
+            margin-bottom: 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -52,18 +59,28 @@
         }
 
         .user-info-card .avatar {
-            width: 64px;
-            height: 64px;
-            background: white;
+            width: 60px;
+            height: 60px;
+            background: var(--color-on-primary);
             color: var(--color-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            font-family: var(--font-display);
             font-weight: 700;
             margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .user-info-card h4 {
+            color: var(--color-on-primary);
+            font-family: var(--font-display);
+        }
+
+        .user-info-card span {
+            color: var(--color-on-primary);
+            opacity: 0.9;
         }
 
         .nav-item {
@@ -73,22 +90,21 @@
             padding: 14px 16px;
             border-radius: 12px;
             color: var(--color-text-secondary);
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
             font-size: 0.95rem;
         }
 
         .nav-item:hover {
-            background: #fff3e0; /* light orange */
+            background: var(--color-surface-container-high);
             color: var(--color-primary);
             transform: translateX(4px);
         }
 
         .nav-item.active {
-            background: #fff3e0;
+            background: var(--color-surface-container-high);
             color: var(--color-primary);
-            font-weight: 600;
         }
 
         .nav-item i { width: 20px; height: 20px; }
@@ -97,24 +113,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 32px;
+            margin-bottom: 30px;
         }
         
         .dashboard-header h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-display);
             font-weight: 700;
             font-size: 2rem;
-            color: var(--color-text);
+            color: var(--color-text-primary);
             margin: 0;
             letter-spacing: -0.02em;
         }
 
         .dashboard-card {
-            background: white;
+            background: var(--color-surface);
             border-radius: 20px;
             padding: 32px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid var(--color-outline-variant);
             margin-bottom: 24px;
         }
 
@@ -137,13 +153,14 @@
             border-spacing: 0;
         }
         .leads-table th { 
-            font-weight: 600; 
+            font-family: var(--font-body);
+            font-weight: 700; 
             color: var(--color-text-secondary); 
             font-size: 0.85rem; 
             text-transform: uppercase;
             letter-spacing: 0.05em;
             padding: 16px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--color-outline-variant);
             text-align: left;
         }
         .leads-table td {
@@ -152,9 +169,11 @@
             border-bottom: 1px solid rgba(0,0,0,0.03);
             vertical-align: middle;
             font-size: 0.95rem;
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
         }
         .leads-table tr:last-child td { border-bottom: none; }
-        .leads-table tr:hover td { background-color: #fafafa; }
+        .leads-table tr:hover td { background-color: var(--color-surface-container); }
         
         .leads-status {
             padding: 6px 14px;
@@ -174,8 +193,8 @@
             gap: 24px;
         }
         .file-card {
-            background: #fafafa;
-            border: 1px solid rgba(0,0,0,0.05);
+            background: var(--color-surface-container);
+            border: 1px solid var(--color-outline-variant);
             border-radius: 16px;
             padding: 32px 24px;
             text-align: center;
@@ -184,37 +203,42 @@
             flex-direction: column;
             align-items: center;
         }
+        .file-card h4 {
+            color: var(--color-text-primary);
+            font-family: var(--font-display);
+        }
         .file-card:hover { 
-            transform: translateY(-8px); 
+            transform: translateY(-5px); 
             box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-            background: white;
-            border-color: rgba(255,107,0,0.2);
+            background: var(--color-surface);
+            border-color: var(--color-primary);
         }
         .file-icon {
             width: 56px;
             height: 56px;
             color: var(--color-primary);
             margin-bottom: 20px;
-            background: #fff3e0;
+            background: var(--color-surface-container-high);
             padding: 12px;
             border-radius: 16px;
         }
 
         /* Calendar customization */
-        .fc { font-family: 'Inter', sans-serif; }
-        .fc-toolbar-title { font-family: 'Montserrat', sans-serif; font-weight: 700 !important; }
-        .fc-button-primary { background-color: var(--color-primary) !important; border-color: var(--color-primary) !important; }
+        .fc { font-family: var(--font-body); }
+        .fc-toolbar-title { font-family: var(--font-display); font-weight: 700 !important; color: var(--color-text-primary); }
+        .fc-button-primary { background-color: var(--color-primary) !important; border-color: var(--color-primary) !important; font-family: var(--font-body); font-weight: 700 !important;}
+        
+        .form-group label {
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            font-weight: 700;
+        }
         
         @media (max-width: 1024px) {
-            .dashboard-main { padding: 32px 24px; }
-        }
-
-        @media (max-width: 768px) {
-            .dashboard-container { flex-direction: column; }
-            .dashboard-sidebar { width: 100%; border-right: none; padding: 24px; }
-            .dashboard-main { padding: 20px; }
-            .user-info-card { flex-direction: row; text-align: left; gap: 20px; }
-            .user-info-card .avatar { margin-bottom: 0; width: 48px; height: 48px; font-size: 1.2rem; }
+            .dashboard-container { flex-direction: column; padding: 15px; margin-top: 60px; }
+            .dashboard-sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .user-info-card { width: 100%; flex-direction: row; gap: 20px; text-align: left; }
+            .user-info-card .avatar { margin-bottom: 0; }
         }
     </style>
 </head>
@@ -227,11 +251,59 @@
                     <span class="logo-text orange">All Inclusive Turismo</span>
                 </a>
             </div>
-            <div class="nav-right desktop-only">
-                <a href="auth.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.875rem;">Volver al Perfil</a>
+            
+            <div class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#paquetes">Paquetes</a>
+                        <div class="nav-dropdown">
+                            <a href="nacionales-internacionales.html">Turismo</a>
+                            <a href="cruceros.html">Cruceros</a>
+                            <a href="jubilados.html">Jubilados</a>
+                            <a href="estudiantiles.html">Estudiantiles</a>
+                            <a href="xv.html">Viajes de XV</a>
+                            <a href="traslados.html">Traslados</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="index.html#egresados">Egresados</a>
+                        <div class="nav-dropdown">
+                            <a href="egresados-primario.html">Primario</a>
+                            <a href="egresados-secundario.html">Secundario</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">Sobre Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
             </div>
+            
+            <div class="nav-right desktop-only" id="nav-user-section">
+                <a href="auth.html" class="nav-icon-link"><i data-lucide="user"></i></a>
+            </div>
+
+            <button class="mobile-menu-toggle mobile-only" aria-label="Abrir menú">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
     </nav>
+    
+    <!-- MOBILE DRAWER -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <button class="drawer-close" aria-label="Cerrar menú">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#paquetes">Paquetes</a></li>
+            <li><a href="index.html#egresados">Egresados</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="auth.html">Perfil</a></li>
+        </ul>
+    </div>
 
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -269,7 +341,7 @@
             <div id="leads-tab" class="tab-content active">
                 <div class="dashboard-header">
                     <h2>Mis Leads</h2>
-                    <button class="btn btn-primary" onclick="alert('Función próximamente disponible')">+ Nuevo Lead</button>
+                    <button class="btn-shadcn btn-shadcn-primary" onclick="alert('Función próximamente disponible')">+ Nuevo Lead</button>
                 </div>
                 <div class="dashboard-card" style="padding: 0;">
                     <div class="table-container">
@@ -285,25 +357,25 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="font-weight: 500; color: var(--color-text);">María Gómez</td>
+                                    <td style="font-weight: 700; color: var(--color-text-primary);">María Gómez</td>
                                     <td style="color: var(--color-text-secondary);">maria@ejemplo.com</td>
                                     <td>Bariloche</td>
                                     <td><span class="leads-status status-new">Nuevo</span></td>
-                                    <td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
+                                    <td><button class="btn-shadcn btn-shadcn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: 500; color: var(--color-text);">Familia Rodríguez</td>
+                                    <td style="font-weight: 700; color: var(--color-text-primary);">Familia Rodríguez</td>
                                     <td style="color: var(--color-text-secondary);">flia.rod@ejemplo.com</td>
                                     <td>Caribe Sur</td>
                                     <td><span class="leads-status status-contacted">Contactado</span></td>
-                                    <td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
+                                    <td><button class="btn-shadcn btn-shadcn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: 500; color: var(--color-text);">Colegio San Martín</td>
+                                    <td style="font-weight: 700; color: var(--color-text-primary);">Colegio San Martín</td>
                                     <td style="color: var(--color-text-secondary);">directora@csm.edu.ar</td>
                                     <td>Carlos Paz</td>
                                     <td><span class="leads-status status-closed">Cerrado</span></td>
-                                    <td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
+                                    <td><button class="btn-shadcn btn-shadcn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -326,24 +398,24 @@
                 <div class="dashboard-header">
                     <h2>Material para Agentes</h2>
                     <div id="admin-upload-btn" style="display: none;">
-                        <button class="btn btn-primary"><i data-lucide="upload" style="width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:5px;"></i> Subir Archivo</button>
+                        <button class="btn-shadcn btn-shadcn-primary"><i data-lucide="upload" style="width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:5px;"></i> Subir Archivo</button>
                     </div>
                 </div>
                 <div class="dashboard-card files-grid">
                     <div class="file-card">
                         <i data-lucide="file-text" class="file-icon"></i>
                         <h4 style="margin-bottom: 10px; font-size: 0.9rem;">Tarifario 2026.pdf</h4>
-                        <button class="btn btn-outline full-width" style="padding: 6px; font-size: 0.8rem;">Descargar</button>
+                        <button class="btn-shadcn btn-shadcn-outline" style="width: 100%; padding: 8px; font-size: 0.85rem;">Descargar</button>
                     </div>
                     <div class="file-card">
                         <i data-lucide="image" class="file-icon"></i>
                         <h4 style="margin-bottom: 10px; font-size: 0.9rem;">Flyers Redes.zip</h4>
-                        <button class="btn btn-outline full-width" style="padding: 6px; font-size: 0.8rem;">Descargar</button>
+                        <button class="btn-shadcn btn-shadcn-outline" style="width: 100%; padding: 8px; font-size: 0.85rem;">Descargar</button>
                     </div>
                     <div class="file-card">
                         <i data-lucide="file-text" class="file-icon"></i>
                         <h4 style="margin-bottom: 10px; font-size: 0.9rem;">Contrato Base.docx</h4>
-                        <button class="btn btn-outline full-width" style="padding: 6px; font-size: 0.8rem;">Descargar</button>
+                        <button class="btn-shadcn btn-shadcn-outline" style="width: 100%; padding: 8px; font-size: 0.85rem;">Descargar</button>
                     </div>
                 </div>
             </div>
@@ -354,15 +426,15 @@
                     <h2>Configuración de Perfil</h2>
                 </div>
                 <div class="dashboard-card" style="max-width: 600px;">
-                    <div class="form-group">
-                        <label>Nombre Completo</label>
-                        <input type="text" class="form-control" id="prof-name" value="Cargando...">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display:block; margin-bottom: 8px;">Nombre Completo</label>
+                        <input type="text" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--color-outline-variant); font-family: var(--font-body);" id="prof-name" value="Cargando...">
                     </div>
-                    <div class="form-group">
-                        <label>Teléfono de Contacto</label>
-                        <input type="text" class="form-control" placeholder="+54 9 11...">
+                    <div class="form-group" style="margin-bottom: 24px;">
+                        <label style="display:block; margin-bottom: 8px;">Teléfono de Contacto</label>
+                        <input type="text" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--color-outline-variant); font-family: var(--font-body);" placeholder="+54 9 11...">
                     </div>
-                    <button class="btn btn-primary" onclick="alert('Datos actualizados')">Guardar Cambios</button>
+                    <button class="btn-shadcn btn-shadcn-primary" onclick="alert('Datos actualizados')">Guardar Cambios</button>
                 </div>
             </div>
 
@@ -370,6 +442,7 @@
     </div>
 
     <script src="main.js"></script>
+    <script type="module" src="auth-state.js"></script>
     <script type="module">
         import { auth, getUserRole, onAuthStateChanged } from './firebase-config.js';
 
