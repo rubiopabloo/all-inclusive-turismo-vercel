@@ -250,57 +250,64 @@
                 </div>
 
                 <div id="login-pane" class="auth-form-pane active">
-                    <form class="auth-form">
+                    <div id="login-error" class="auth-message error" style="display:none;"></div>
+                    <form id="login-form" class="auth-form">
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" placeholder="tu@email.com" required>
+                            <input type="email" id="login-email" placeholder="tu@email.com" required>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
                             <div class="password-field">
-                                <input type="password" placeholder="••••••••" required>
+                                <input type="password" id="login-password" placeholder="••••••••" required>
                             </div>
                         </div>
                         <div class="form-footer">
                             <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
                         </div>
-                        <button type="submit" class="btn btn-primary full-width">Ingresar</button>
+                        <button type="submit" id="login-btn" class="btn btn-primary full-width">Ingresar</button>
                     </form>
                 </div>
 
                 <div id="register-pane" class="auth-form-pane">
-                    <form class="auth-form">
+                    <div id="register-error" class="auth-message error" style="display:none;"></div>
+                    <div id="register-success" class="auth-message success" style="display:none;"></div>
+                    <form id="register-form" class="auth-form">
                         <div class="form-group">
                             <label>Nombre Completo</label>
-                            <input type="text" placeholder="Juan Pérez" required>
+                            <input type="text" id="register-name" placeholder="Juan Pérez" required>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" placeholder="tu@email.com" required>
+                            <input type="email" id="register-email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" id="register-phone" placeholder="+54 9 11 1234-5678">
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
                             <div class="password-field">
-                                <input type="password" placeholder="Mínimo 8 caracteres" required>
+                                <input type="password" id="register-password" placeholder="Mínimo 6 caracteres" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Confirmar Contraseña</label>
                             <div class="password-field">
-                                <input type="password" placeholder="Confirmar contraseña" required>
+                                <input type="password" id="register-confirm" placeholder="Confirmar contraseña" required>
                             </div>
                         </div>
                         <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-                            <input type="checkbox" id="terms" style="width: auto; margin-top: 5px;">
+                            <input type="checkbox" id="terms" style="width: auto; margin-top: 5px;" required>
                             <label for="terms" style="font-size: 0.875rem;">Acepto los términos y condiciones</label>
                         </div>
-                        <button type="submit" class="btn btn-primary full-width">Crear mi cuenta</button>
+                        <button type="submit" id="register-btn" class="btn btn-primary full-width">Crear mi cuenta</button>
                     </form>
                 </div>
 
                 <div class="social-login-separator">O ingresar con</div>
                 <div class="social-buttons">
-                    <button class="social-btn google" aria-label="Ingresar con Google">
+                    <button id="google-login" class="social-btn google" aria-label="Ingresar con Google">
                         <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/><path d="M1 1h22v22H1z" fill="none"/></svg>
                     </button>
                     <button class="social-btn facebook" aria-label="Ingresar con Facebook">
@@ -315,8 +322,61 @@
     </div>
 
 
+    <style>
+        .auth-message {
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .auth-message.error {
+            background: #FFF0F0;
+            color: #D32F2F;
+            border-left: 4px solid #D32F2F;
+        }
+        .auth-message.success {
+            background: #F0FFF4;
+            color: #2E7D32;
+            border-left: 4px solid #2E7D32;
+        }
+        .btn.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        /* Logged-in state */
+        .user-panel {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .user-panel .avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--color-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        .user-panel h3 { margin-bottom: 5px; }
+        .user-panel .role-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: var(--color-surface);
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+    </style>
+
     <script src="main.js"></script>
-    <script>
+    <script type="module">
+        import { auth, registerWithEmail, loginWithEmail, loginWithGoogle, logout, getUserRole, onAuthStateChanged } from './firebase-config.js';
+
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.auth-tab');
             const panes = document.querySelectorAll('.auth-form-pane');
@@ -333,6 +393,112 @@
                     });
                 });
             });
+
+            // LOGIN
+            const loginForm = document.getElementById('login-form');
+            const loginError = document.getElementById('login-error');
+
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                loginError.style.display = 'none';
+                const btn = document.getElementById('login-btn');
+                btn.classList.add('loading');
+                btn.textContent = 'Ingresando...';
+
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+
+                const result = await loginWithEmail(email, password);
+                if (result.success) {
+                    showLoggedInState(result.user);
+                } else {
+                    loginError.textContent = result.error;
+                    loginError.style.display = 'block';
+                    btn.classList.remove('loading');
+                    btn.textContent = 'Ingresar';
+                }
+            });
+
+            // REGISTER
+            const registerForm = document.getElementById('register-form');
+            const registerError = document.getElementById('register-error');
+            const registerSuccess = document.getElementById('register-success');
+
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                registerError.style.display = 'none';
+                registerSuccess.style.display = 'none';
+                const btn = document.getElementById('register-btn');
+                btn.classList.add('loading');
+                btn.textContent = 'Creando cuenta...';
+
+                const name = document.getElementById('register-name').value;
+                const email = document.getElementById('register-email').value;
+                const phone = document.getElementById('register-phone').value;
+                const password = document.getElementById('register-password').value;
+                const confirm = document.getElementById('register-confirm').value;
+
+                if (password !== confirm) {
+                    registerError.textContent = 'Las contraseñas no coinciden.';
+                    registerError.style.display = 'block';
+                    btn.classList.remove('loading');
+                    btn.textContent = 'Crear mi cuenta';
+                    return;
+                }
+
+                const result = await registerWithEmail(email, password, name, phone);
+                if (result.success) {
+                    showLoggedInState(result.user);
+                } else {
+                    registerError.textContent = result.error;
+                    registerError.style.display = 'block';
+                    btn.classList.remove('loading');
+                    btn.textContent = 'Crear mi cuenta';
+                }
+            });
+
+            // GOOGLE LOGIN
+            document.getElementById('google-login').addEventListener('click', async () => {
+                const result = await loginWithGoogle();
+                if (result.success) {
+                    showLoggedInState(result.user);
+                } else {
+                    loginError.textContent = result.error;
+                    loginError.style.display = 'block';
+                }
+            });
+
+            // CHECK AUTH STATE
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    showLoggedInState(user);
+                }
+            });
+
+            // SHOW LOGGED IN STATE
+            async function showLoggedInState(user) {
+                const role = await getUserRole(user.uid);
+                const roleName = { usuario: 'Usuario', agente: 'Agente de Viaje', admin: 'Administrador' }[role] || 'Usuario';
+                const initials = (user.displayName || user.email || 'U').substring(0, 2).toUpperCase();
+
+                const authBox = document.querySelector('.auth-box');
+                authBox.innerHTML = `
+                    <div class="user-panel">
+                        <div class="avatar">${initials}</div>
+                        <h3 class="font-display">${user.displayName || 'Usuario'}</h3>
+                        <p style="color: var(--color-text-secondary); margin-bottom: 10px;">${user.email}</p>
+                        <span class="role-badge">${roleName}</span>
+                        <br><br>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Bienvenido/a a All Inclusive Turismo. Pronto vas a poder ver tus reservas y paquetes favoritos acá.</p>
+                        <br>
+                        <button id="logout-btn" class="btn btn-primary full-width">Cerrar Sesión</button>
+                    </div>
+                `;
+                document.getElementById('logout-btn').addEventListener('click', async () => {
+                    await logout();
+                    window.location.reload();
+                });
+            }
 
             if (window.lucide) window.lucide.createIcons();
         });
