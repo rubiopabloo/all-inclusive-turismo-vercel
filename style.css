@@ -347,12 +347,31 @@ body.header-transparent #navbar {
 body.header-transparent #navbar:not(.scrolled) .logo-text.orange,
 body.header-transparent #navbar:not(.scrolled) .nav-links a,
 body.header-transparent #navbar:not(.scrolled) .nav-icon-link,
-body.header-transparent #navbar:not(.scrolled) .mobile-menu-toggle {
+body.header-transparent #navbar:not(.scrolled) .mobile-menu-toggle,
+body.header-transparent #navbar:not(.scrolled) .nav-user-name {
     color: #FFFFFF;
 }
 
 body.header-transparent #navbar:not(.scrolled) .mobile-menu-toggle {
     border-color: rgba(255,255,255,0.3);
+}
+
+body.header-transparent #navbar:not(.scrolled) .btn-outline.nav-logout-btn {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #FFFFFF;
+}
+
+body.header-transparent #navbar:not(.scrolled) .btn-outline.nav-logout-btn:hover {
+    background: #FFFFFF;
+    color: var(--color-primary-dark);
+}
+
+.nav-user-name {
+    margin-right: 15px; 
+    font-weight: 700; 
+    font-size: 0.9375rem; 
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
 }
 
 body.header-transparent #navbar.scrolled {

@@ -341,7 +341,7 @@
             <div id="leads-tab" class="tab-content active">
                 <div class="dashboard-header">
                     <h2>Mis Leads</h2>
-                    <button class="btn-shadcn btn-shadcn-primary" onclick="alert('Función próximamente disponible')">+ Nuevo Lead</button>
+                    <button class="btn-shadcn btn-shadcn-primary" id="btn-new-lead">+ Nuevo Lead</button>
                 </div>
                 <div class="dashboard-card" style="padding: 0;">
                     <div class="table-container">
@@ -398,25 +398,12 @@
                 <div class="dashboard-header">
                     <h2>Material para Agentes</h2>
                     <div id="admin-upload-btn" style="display: none;">
-                        <button class="btn-shadcn btn-shadcn-primary"><i data-lucide="upload" style="width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:5px;"></i> Subir Archivo</button>
+                        <input type="file" id="file-upload-input" style="display:none;" />
+                        <button class="btn-shadcn btn-shadcn-primary" id="btn-trigger-upload"><i data-lucide="upload" style="width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:5px;"></i> Subir Archivo</button>
                     </div>
                 </div>
-                <div class="dashboard-card files-grid">
-                    <div class="file-card">
-                        <i data-lucide="file-text" class="file-icon"></i>
-                        <h4 style="margin-bottom: 10px; font-size: 0.9rem;">Tarifario 2026.pdf</h4>
-                        <button class="btn-shadcn btn-shadcn-outline" style="width: 100%; padding: 8px; font-size: 0.85rem;">Descargar</button>
-                    </div>
-                    <div class="file-card">
-                        <i data-lucide="image" class="file-icon"></i>
-                        <h4 style="margin-bottom: 10px; font-size: 0.9rem;">Flyers Redes.zip</h4>
-                        <button class="btn-shadcn btn-shadcn-outline" style="width: 100%; padding: 8px; font-size: 0.85rem;">Descargar</button>
-                    </div>
-                    <div class="file-card">
-                        <i data-lucide="file-text" class="file-icon"></i>
-                        <h4 style="margin-bottom: 10px; font-size: 0.9rem;">Contrato Base.docx</h4>
-                        <button class="btn-shadcn btn-shadcn-outline" style="width: 100%; padding: 8px; font-size: 0.85rem;">Descargar</button>
-                    </div>
+                <div class="dashboard-card files-grid" id="files-grid-container">
+                    <div style="width: 100%; text-align: center; color: var(--color-text-secondary); grid-column: 1 / -1;">Cargando archivos...</div>
                 </div>
             </div>
 
@@ -432,9 +419,9 @@
                     </div>
                     <div class="form-group" style="margin-bottom: 24px;">
                         <label style="display:block; margin-bottom: 8px;">Teléfono de Contacto</label>
-                        <input type="text" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--color-outline-variant); font-family: var(--font-body);" placeholder="+54 9 11...">
+                        <input type="text" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--color-outline-variant); font-family: var(--font-body);" id="prof-phone" placeholder="+54 9 11...">
                     </div>
-                    <button class="btn-shadcn btn-shadcn-primary" onclick="alert('Datos actualizados')">Guardar Cambios</button>
+                    <button class="btn-shadcn btn-shadcn-primary" id="btn-save-profile">Guardar Cambios</button>
                 </div>
             </div>
 
@@ -444,7 +431,13 @@
     <script src="main.js"></script>
     <script type="module" src="auth-state.js"></script>
     <script type="module">
-        import { auth, getUserRole, onAuthStateChanged } from './firebase-config.js';
+        import { auth, db, storage, getUserRole, onAuthStateChanged } from './firebase-config.js';
+        import { collection, query, where, getDocs, addDoc, doc, updateDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+        import { ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-storage.js";
+
+        let currentUser = null;
+        let userRole = null;
+        let calendarInstance = null;
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
@@ -463,7 +456,6 @@
                         c.classList.remove('active');
                         if (c.id === `${target}-tab`) {
                             c.classList.add('active');
-                            // render calendar if opened
                             if (target === 'calendar' && !window.calendarRendered) {
                                 renderCalendar();
                                 window.calendarRendered = true;
@@ -476,28 +468,181 @@
             // Auth Check
             onAuthStateChanged(auth, async (user) => {
                 if (user) {
-                    const role = await getUserRole(user.uid);
-                    if (role !== 'agente' && role !== 'admin') {
-                        window.location.href = 'auth.html'; // Redirect if not authorized
+                    currentUser = user;
+                    userRole = await getUserRole(user.uid);
+                    
+                    if (userRole !== 'agente' && userRole !== 'admin') {
+                        window.location.href = 'auth.html'; 
                     } else {
-                        // Populate user details
                         document.getElementById('sidebar-avatar').textContent = user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U';
                         document.getElementById('sidebar-name').textContent = user.displayName || 'Agente';
-                        document.getElementById('sidebar-role').textContent = role === 'admin' ? 'Administrador' : 'Agente de Viaje';
+                        document.getElementById('sidebar-role').textContent = userRole === 'admin' ? 'Administrador' : 'Agente de Viaje';
                         document.getElementById('prof-name').value = user.displayName || '';
 
-                        if (role === 'admin') {
+                        if (userRole === 'admin') {
                             document.getElementById('admin-upload-btn').style.display = 'block';
+                            document.getElementById('btn-trigger-upload').addEventListener('click', () => {
+                                document.getElementById('file-upload-input').click();
+                            });
+                            document.getElementById('file-upload-input').addEventListener('change', handleFileUpload);
                         }
+                        
+                        loadLeads();
+                        loadFiles();
+                        
+                        // Setup Profile Save
+                        document.getElementById('btn-save-profile').addEventListener('click', saveProfile);
+                        document.getElementById('btn-new-lead').addEventListener('click', createNewLead);
                     }
                 } else {
-                    window.location.href = 'auth.html'; // Not logged in
+                    window.location.href = 'auth.html';
                 }
             });
 
+            async function loadLeads() {
+                const tbody = document.querySelector('.leads-table tbody');
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Cargando leads...</td></tr>';
+                
+                try {
+                    let q;
+                    if (userRole === 'admin') {
+                        q = query(collection(db, "leads"));
+                    } else {
+                        q = query(collection(db, "leads"), where("agentId", "==", currentUser.uid));
+                    }
+                    
+                    onSnapshot(q, (snapshot) => {
+                        tbody.innerHTML = '';
+                        if (snapshot.empty) {
+                            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No tienes leads todavía.</td></tr>';
+                            return;
+                        }
+                        snapshot.forEach((doc) => {
+                            const data = doc.data();
+                            let statusClass = data.status === 'Cerrado' ? 'status-closed' : (data.status === 'Contactado' ? 'status-contacted' : 'status-new');
+                            tbody.innerHTML += `
+                                <tr>
+                                    <td style="font-weight: 700; color: var(--color-text-primary);">${data.name || 'Sin nombre'}</td>
+                                    <td style="color: var(--color-text-secondary);">${data.email || '-'}</td>
+                                    <td>${data.destination || '-'}</td>
+                                    <td><span class="leads-status ${statusClass}">${data.status || 'Nuevo'}</span></td>
+                                    <td><button class="btn-shadcn btn-shadcn-outline" onclick="window.editLead('${doc.id}')" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
+                                </tr>
+                            `;
+                        });
+                    });
+                } catch (e) {
+                    console.error("Error loading leads", e);
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Error al cargar.</td></tr>';
+                }
+            }
+
+            async function createNewLead() {
+                const name = prompt('Nombre del lead:');
+                if (!name) return;
+                const email = prompt('Email del lead:');
+                const destination = prompt('Destino de interés:');
+                
+                try {
+                    await addDoc(collection(db, "leads"), {
+                        agentId: currentUser.uid,
+                        name: name,
+                        email: email,
+                        destination: destination,
+                        status: 'Nuevo',
+                        createdAt: new Date()
+                    });
+                } catch (e) {
+                    alert('Error al crear lead: ' + e.message);
+                }
+            }
+            
+            window.editLead = async function(id) {
+                const newStatus = prompt('Escriba nuevo estado (Nuevo, Contactado, Cerrado):');
+                if (newStatus && ['Nuevo', 'Contactado', 'Cerrado'].includes(newStatus)) {
+                    await updateDoc(doc(db, "leads", id), { status: newStatus });
+                } else if (newStatus) {
+                    alert('Estado inválido');
+                }
+            };
+
+            async function saveProfile() {
+                const newName = document.getElementById('prof-name').value;
+                const newPhone = document.getElementById('prof-phone').value;
+                
+                try {
+                    await updateDoc(doc(db, "users", currentUser.uid), {
+                        displayName: newName,
+                        phone: newPhone
+                    });
+                    document.getElementById('sidebar-name').textContent = newName;
+                    alert('Perfil actualizado correctamente.');
+                } catch (e) {
+                    alert('Error actualizando: ' + e.message);
+                }
+            }
+
+            async function loadFiles() {
+                const grid = document.getElementById('files-grid-container');
+                grid.innerHTML = '<div style="width: 100%; text-align: center; color: var(--color-text-secondary); grid-column: 1 / -1;">Cargando archivos...</div>';
+                
+                try {
+                    const listRef = ref(storage, 'agent-files');
+                    const res = await listAll(listRef);
+                    
+                    grid.innerHTML = '';
+                    if (res.items.length === 0) {
+                        grid.innerHTML = '<div style="width: 100%; text-align: center; color: var(--color-text-secondary); grid-column: 1 / -1;">No hay archivos disponibles.</div>';
+                        return;
+                    }
+                    
+                    for (const itemRef of res.items) {
+                        const url = await getDownloadURL(itemRef);
+                        const isPdf = itemRef.name.toLowerCase().endsWith('.pdf');
+                        const isImage = itemRef.name.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/);
+                        const icon = isPdf ? 'file-text' : (isImage ? 'image' : 'file');
+                        
+                        grid.innerHTML += `
+                            <div class="file-card">
+                                <i data-lucide="${icon}" class="file-icon"></i>
+                                <h4 style="margin-bottom: 10px; font-size: 0.9rem;">${itemRef.name}</h4>
+                                <a href="${url}" target="_blank" style="text-decoration: none; width:100%;">
+                                    <button class="btn-shadcn btn-shadcn-outline" style="width: 100%; padding: 8px; font-size: 0.85rem;">Descargar</button>
+                                </a>
+                            </div>
+                        `;
+                    }
+                    lucide.createIcons(); // Re-initialize new icons
+                } catch (error) {
+                    console.error("Error loading files", error);
+                    grid.innerHTML = '<div style="width: 100%; text-align: center; color: var(--color-text-secondary); grid-column: 1 / -1;">Error al cargar archivos.</div>';
+                }
+            }
+
+            async function handleFileUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                const storageRef = ref(storage, 'agent-files/' + file.name);
+                try {
+                    // Show loading
+                    document.getElementById('btn-trigger-upload').innerHTML = 'Subiendo...';
+                    await uploadBytes(storageRef, file);
+                    alert('Archivo subido correctamente');
+                    document.getElementById('btn-trigger-upload').innerHTML = '<i data-lucide="upload" style="width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:5px;"></i> Subir Archivo';
+                    lucide.createIcons();
+                    loadFiles(); // Reload
+                } catch (error) {
+                    console.error("Error uploading file", error);
+                    alert('Error subiendo archivo');
+                    document.getElementById('btn-trigger-upload').innerHTML = '<i data-lucide="upload" style="width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:5px;"></i> Subir Archivo';
+                    lucide.createIcons();
+                }
+            }
+
             function renderCalendar() {
                 var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
+                calendarInstance = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'dayGridMonth',
                     locale: 'es',
                     headerToolbar: {
@@ -505,12 +650,41 @@
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek'
                     },
-                    events: [
-                        { title: 'Reunión Colegio', start: new Date().toISOString().split('T')[0] },
-                        { title: 'Cobro seña', start: new Date(new Date().setDate(new Date().getDate() + 2)).toISOString().split('T')[0] }
-                    ]
+                    selectable: true,
+                    select: async function(info) {
+                        const title = prompt('Nuevo Evento:');
+                        if (title) {
+                            try {
+                                await addDoc(collection(db, "events"), {
+                                    agentId: currentUser.uid,
+                                    title: title,
+                                    start: info.startStr,
+                                    end: info.endStr,
+                                    allDay: info.allDay
+                                });
+                                // Will be rendered by onSnapshot later if we had one, 
+                                // but for instant feedback:
+                                calendarInstance.addEvent({ title: title, start: info.startStr, end: info.endStr, allDay: info.allDay });
+                            } catch (e) {
+                                console.error("Error saving event", e);
+                            }
+                        }
+                    }
                 });
-                calendar.render();
+                calendarInstance.render();
+                
+                // Fetch events
+                try {
+                    const q = query(collection(db, "events"), where("agentId", "==", currentUser.uid));
+                    onSnapshot(q, (snapshot) => {
+                        calendarInstance.removeAllEvents();
+                        snapshot.forEach((doc) => {
+                            calendarInstance.addEvent(doc.data());
+                        });
+                    });
+                } catch (e) {
+                    console.error("Error fetching events", e);
+                }
             }
         });
     </script>
