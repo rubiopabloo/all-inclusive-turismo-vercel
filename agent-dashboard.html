@@ -9,42 +9,86 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <style>
+        body {
+            background-color: #f8fafc; /* Very light cool gray background */
+        }
+        
         .dashboard-container {
             display: flex;
             min-height: calc(100vh - 80px);
-            background-color: var(--color-background);
             margin-top: 80px;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .dashboard-sidebar {
             width: 280px;
             background: white;
-            border-right: 1px solid var(--color-border);
-            padding: 30px 20px;
+            border-right: 1px solid rgba(0,0,0,0.05);
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .dashboard-main {
             flex: 1;
-            padding: 40px;
+            padding: 48px;
             overflow-y: auto;
+        }
+
+        .user-info-card {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #ff6b00 100%);
+            border-radius: 16px;
+            padding: 24px;
+            color: white;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 25px -5px rgba(255, 107, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .user-info-card .avatar {
+            width: 64px;
+            height: 64px;
+            background: white;
+            color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .nav-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 16px;
-            border-radius: 8px;
+            padding: 14px 16px;
+            border-radius: 12px;
             color: var(--color-text-secondary);
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
         }
 
-        .nav-item:hover, .nav-item.active {
-            background: var(--color-surface);
+        .nav-item:hover {
+            background: #fff3e0; /* light orange */
             color: var(--color-primary);
+            transform: translateX(4px);
+        }
+
+        .nav-item.active {
+            background: #fff3e0;
+            color: var(--color-primary);
+            font-weight: 600;
         }
 
         .nav-item i { width: 20px; height: 20px; }
@@ -53,67 +97,124 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+        }
+        
+        .dashboard-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--color-text);
+            margin: 0;
+            letter-spacing: -0.02em;
         }
 
         .dashboard-card {
             background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0,0,0,0.02);
             margin-bottom: 24px;
         }
 
         /* Tabs Content */
-        .tab-content { display: none; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
         .tab-content.active { display: block; }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Leads Table */
+        .table-container {
+            overflow-x: auto;
+        }
         .leads-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
         }
-        .leads-table th, .leads-table td {
-            padding: 12px 16px;
+        .leads-table th { 
+            font-weight: 600; 
+            color: var(--color-text-secondary); 
+            font-size: 0.85rem; 
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             text-align: left;
-            border-bottom: 1px solid var(--color-border);
         }
-        .leads-table th { font-weight: 600; color: var(--color-text-secondary); font-size: 0.875rem; }
+        .leads-table td {
+            padding: 20px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            vertical-align: middle;
+            font-size: 0.95rem;
+        }
+        .leads-table tr:last-child td { border-bottom: none; }
+        .leads-table tr:hover td { background-color: #fafafa; }
+        
         .leads-status {
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
+            display: inline-block;
         }
-        .status-new { background: #e0f2fe; color: #0284c7; }
-        .status-contacted { background: #fef9c3; color: #ca8a04; }
-        .status-closed { background: #dcfce7; color: #16a34a; }
+        .status-new { background: #e0f2fe; color: #0369a1; }
+        .status-contacted { background: #fef9c3; color: #a16207; }
+        .status-closed { background: #dcfce7; color: #15803d; }
 
         /* Files grid */
         .files-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
         }
         .file-card {
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 20px;
+            background: #fafafa;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 16px;
+            padding: 32px 24px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .file-card:hover { transform: translateY(-5px); }
+        .file-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            background: white;
+            border-color: rgba(255,107,0,0.2);
+        }
         .file-icon {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             color: var(--color-primary);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 16px;
+        }
+
+        /* Calendar customization */
+        .fc { font-family: 'Inter', sans-serif; }
+        .fc-toolbar-title { font-family: 'Montserrat', sans-serif; font-weight: 700 !important; }
+        .fc-button-primary { background-color: var(--color-primary) !important; border-color: var(--color-primary) !important; }
+        
+        @media (max-width: 1024px) {
+            .dashboard-main { padding: 32px 24px; }
         }
 
         @media (max-width: 768px) {
             .dashboard-container { flex-direction: column; }
-            .dashboard-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--color-border); }
+            .dashboard-sidebar { width: 100%; border-right: none; padding: 24px; }
             .dashboard-main { padding: 20px; }
+            .user-info-card { flex-direction: row; text-align: left; gap: 20px; }
+            .user-info-card .avatar { margin-bottom: 0; width: 48px; height: 48px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -135,11 +236,11 @@
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="dashboard-sidebar">
-            <div class="user-info" style="margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
-                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;" id="sidebar-avatar">A</div>
+            <div class="user-info-card">
+                <div class="avatar" id="sidebar-avatar">A</div>
                 <div>
-                    <h4 style="margin: 0; font-size: 1rem;" id="sidebar-name">Cargando...</h4>
-                    <span style="font-size: 0.75rem; color: var(--color-text-secondary); text-transform: uppercase; font-weight: 700;" id="sidebar-role">Agente</span>
+                    <h4 style="margin: 0; font-size: 1.25rem; font-weight: 600; margin-bottom: 4px;" id="sidebar-name">Cargando...</h4>
+                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; opacity: 0.9;" id="sidebar-role">Agente</span>
                 </div>
             </div>
 
@@ -170,41 +271,43 @@
                     <h2>Mis Leads</h2>
                     <button class="btn btn-primary" onclick="alert('Función próximamente disponible')">+ Nuevo Lead</button>
                 </div>
-                <div class="dashboard-card">
-                    <table class="leads-table">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Email</th>
-                                <th>Destino</th>
-                                <th>Estado</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="font-weight: 500;">María Gómez</td>
-                                <td>maria@ejemplo.com</td>
-                                <td>Bariloche</td>
-                                <td><span class="leads-status status-new">Nuevo</span></td>
-                                <td><button class="btn btn-outline" style="padding: 4px 10px; font-size: 0.75rem;">Editar</button></td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 500;">Familia Rodríguez</td>
-                                <td>flia.rod@ejemplo.com</td>
-                                <td>Caribe Sur</td>
-                                <td><span class="leads-status status-contacted">Contactado</span></td>
-                                <td><button class="btn btn-outline" style="padding: 4px 10px; font-size: 0.75rem;">Editar</button></td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 500;">Colegio San Martín</td>
-                                <td>directora@csm.edu.ar</td>
-                                <td>Carlos Paz</td>
-                                <td><span class="leads-status status-closed">Cerrado</span></td>
-                                <td><button class="btn btn-outline" style="padding: 4px 10px; font-size: 0.75rem;">Editar</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="dashboard-card" style="padding: 0;">
+                    <div class="table-container">
+                        <table class="leads-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Destino</th>
+                                    <th>Estado</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 500; color: var(--color-text);">María Gómez</td>
+                                    <td style="color: var(--color-text-secondary);">maria@ejemplo.com</td>
+                                    <td>Bariloche</td>
+                                    <td><span class="leads-status status-new">Nuevo</span></td>
+                                    <td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 500; color: var(--color-text);">Familia Rodríguez</td>
+                                    <td style="color: var(--color-text-secondary);">flia.rod@ejemplo.com</td>
+                                    <td>Caribe Sur</td>
+                                    <td><span class="leads-status status-contacted">Contactado</span></td>
+                                    <td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 500; color: var(--color-text);">Colegio San Martín</td>
+                                    <td style="color: var(--color-text-secondary);">directora@csm.edu.ar</td>
+                                    <td>Carlos Paz</td>
+                                    <td><span class="leads-status status-closed">Cerrado</span></td>
+                                    <td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">Editar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
